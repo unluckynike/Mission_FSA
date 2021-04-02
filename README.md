@@ -1,8 +1,22 @@
 # Mission_FSA
 
+FSA-CMS
+
+### 🏞待定界面
+
+![](infor/img/0.png)
 
 
 
+### ✂︎模块
+
+requirement
+
+encoding
+
+examination
+
+projection
 
 
 
@@ -32,17 +46,17 @@
 
 （线性时间） 算法已经解决
 
-## 2.发布
+## 2.编码
 
 每人  工时
 
 
 
-## 3.编码
+## 3.测试
 
 
 
-## 4.测试
+## 4.发布
 
 
 
