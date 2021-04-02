@@ -25,9 +25,6 @@ public class SystemController {
     public ModelAndView index(ModelAndView module) {
         System.out.println("测试环境执行");
         module.addObject("testInfor", "添加成功");
-
-         requirementService.findall();
-
         module.setViewName("system/index");
         return module;
     }
