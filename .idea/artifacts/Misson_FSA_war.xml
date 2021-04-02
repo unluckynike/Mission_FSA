@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="Misson-FSA:war">
-    <output-path>$PROJECT_DIR$/classes/artifacts/Misson_FSA_war</output-path>
-    <root id="archive" name="Misson-FSA_war.war">
-      <element id="artifact" artifact-name="Misson-FSA:war exploded" />
-    </root>
-  </artifact>
-</component>

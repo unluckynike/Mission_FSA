@@ -1,0 +1,28 @@
+package main.java.vip.wulinzeng.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/*
+@Name: SystemController
+@Author: zhouhailin
+@Date: 2021/4/2
+@Time: 7:09 下午
+@Description： 
+*/
+@RequestMapping("/system")
+@Controller
+public class SystemController {
+
+
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    public ModelAndView index(ModelAndView module) {
+        System.out.println("测试环境执行");
+        module.addObject("testInfor", "添加成功");
+        module.setViewName("system/index");
+        return module;
+    }
+
+}
