@@ -8,13 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>需求（第一道工序</title>
+<title>需求（第一道工序)</title>
 <link rel="icon" href="/favicon.ico" type="image/ico">
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-<link href="/css/materialdesignicons.min.css" rel="stylesheet">
-<link href="/css/style.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"  href="../css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css"  href="../css/materialdesignicons.min.css" >
+<link rel="stylesheet" type="text/css"  href="../css/style.min.css" >
 </head>
 <body>
 
