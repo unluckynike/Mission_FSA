@@ -9,4 +9,6 @@ import java.util.List;
 public interface RequirementService {
 
     public List<Requirement> findall();
+    public int add(Requirement requirement);
+
 }

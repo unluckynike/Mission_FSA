@@ -23,6 +23,13 @@ public class RequirementServiceImpl implements RequirementService {
     public RequirementDao requirementDao;
 
     @Override
+    public int add(Requirement requirement) {
+        System.out.println("requirement: "+requirement);
+        System.out.println("add value: "+requirementDao.add(requirement));
+        return requirementDao.add(requirement);
+    }
+
+    @Override
     public List<Requirement> findall() {
         System.out.println("asdasd");
         System.out.println("findall: "+requirementDao.findall());

@@ -8,23 +8,8 @@
         select * from requirements
     </select>
 
-    <!--    <select id="queryAll" resultType="Book">-->
-    <!--        SELECT-->
-    <!--            book_id,-->
-    <!--            name,-->
-    <!--            number-->
-    <!--        FROM-->
-    <!--            book-->
-    <!--        ORDER BY-->
-    <!--            book_id-->
-    <!--            LIMIT #{offset}, #{limit}-->
-    <!--    </select>-->
+    <update id="add" parameterType="Requirement" >
+        insert into requirements(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
+    </update>
 
-    <!--    <update id="reduceNumber">-->
-    <!--        UPDATE book-->
-    <!--        SET number = number - 1-->
-    <!--        WHERE-->
-    <!--            book_id = #{bookId}-->
-    <!--          AND number > 0-->
-    <!--    </update>-->
 </mapper>

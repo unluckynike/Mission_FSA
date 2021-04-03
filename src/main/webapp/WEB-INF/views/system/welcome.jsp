@@ -19,54 +19,7 @@
 <body>
 
 <!--左侧导航-->
-<aside class="lyear-layout-sidebar">
-
-    <!-- logo -->
-    <div id="logo" class="sidebar-header">
-        <h4>基于FSA调度cms系统</h4>
-    </div>
-    <div class="lyear-layout-sidebar-scroll">
-
-        <nav class="sidebar-main">
-            <ul class="nav nav-drawer">
-                <li class="nav-item"> <a href="../system/gowelcome"><i class="mdi mdi-home"></i>后台首页</a> </li>
-                <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>需求</a>
-                    <ul class="nav nav-subnav">
-                        <li> <a href="../requirement/go">需求input</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>编码</a>
-                    <ul class="nav nav-subnav">
-                        <li> <a href="lyear_forms_elements.html">编码input</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item nav-item-has-subnav active open">
-                    <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i>测试</a>
-                    <ul class="nav nav-subnav">
-                        <li> <a href="lyear_pages_doc.html"></a>测试input</li>
-                    </ul>
-                </li>
-                <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i>编码</a>
-                    <ul class="nav nav-subnav">
-                        <li> <a href="lyear_js_datepicker.html">编码input</a> </li>
-                    </ul>
-                </li>
-                <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-access-point"></i>FSA调度结果</a>
-                    <ul class="nav nav-subnav">
-                        <li> <a href="lyear_js_datepicker.html">result</a> </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
- <jsp:include page="footer.jsp"></jsp:include>
-    </div>
-
-</aside>
+<jsp:include page="sidebar.jsp"></jsp:include>
 <!--End 左侧导航-->
 
 <!--头部信息-->

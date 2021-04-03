@@ -64,8 +64,7 @@ public class Requirement {
         this.worktime = worktime;
     }
 
-    public Requirement(int id, String projectname, String personname, int worktime) {
-        this.id = id;
+    public Requirement(String projectname, String personname, int worktime) {
         this.projectname = projectname;
         this.personname = personname;
         this.worktime = worktime;

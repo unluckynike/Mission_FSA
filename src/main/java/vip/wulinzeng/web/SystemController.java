@@ -18,9 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SystemController {
 
-    @Autowired
-    public RequirementService requirementService;
-
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public ModelAndView index(ModelAndView module) {
         System.out.println("测试环境执行");
