@@ -11,10 +11,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>需求（第一道工序)</title>
-<link rel="icon" href="../favicon.ico" type="image/ico">
-<link rel="stylesheet" type="text/css"  href="../css/bootstrap.min.css" >
-<link rel="stylesheet" type="text/css"  href="../css/materialdesignicons.min.css" >
-<link rel="stylesheet" type="text/css"  href="../css/style.min.css" >
+<link rel="icon" href="favicon.ico" type="image/ico">
+<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/materialdesignicons.min.css" >
+<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/style.min.css" >
 </head>
 <body>
 
@@ -37,8 +37,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-
-                            <form method="post" action="../requirement/add" class="site-form" accept-charset="UTF-8">
+                       需求
+                            <form method="post" action="${pageContext.request.contextPath }/fas/addrequirementa" class="site-form" accept-charset="UTF-8">
                                 <div class="form-group">
                                     <label for="projectname">项目名</label>
                                     <input  class="form-control" name="projectname" id="projectname" placeholder="输入项目名">

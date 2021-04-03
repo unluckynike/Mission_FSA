@@ -1,4 +1,4 @@
-package main.java.vip.wulinzeng.pojo;
+package vip.wulinzeng.pojo;
 
 /*
 @Name: Requirement
@@ -20,6 +20,7 @@ public class Requirement {
 
     //必须有无参构造方法
     public Requirement() {
+        System.out.println("!!!!!!!!!!");
     }
 
     @Override

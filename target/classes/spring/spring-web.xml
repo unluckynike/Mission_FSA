@@ -38,5 +38,5 @@
     </bean>
 
     <!-- 4.扫描web相关的bean -->
-    <context:component-scan base-package="main.java.vip.wulinzeng.web" />
+    <context:component-scan base-package="vip.wulinzeng.web" />
 </beans>

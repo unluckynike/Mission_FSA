@@ -1,8 +1,8 @@
-package main.java.vip.wulinzeng.service.Impl;
+package vip.wulinzeng.service.Impl;
 
-import main.java.vip.wulinzeng.dao.RequirementDao;
-import main.java.vip.wulinzeng.pojo.Requirement;
-import main.java.vip.wulinzeng.service.RequirementService;
+import vip.wulinzeng.dao.RequirementDao;
+import vip.wulinzeng.pojo.Requirement;
+import vip.wulinzeng.service.RequirementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
