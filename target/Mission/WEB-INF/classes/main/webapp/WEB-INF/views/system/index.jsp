@@ -14,7 +14,10 @@
 //后续拓展 登陆功能
 
 
-<a href="../requirement/go">requirement</a>
+<%--<a href="../requirement/go">requirement</a>--%>
+<br>
+<a href="../system/gowelcome">gowelcome</a>
+
 
 ${testInfor}
 </body>

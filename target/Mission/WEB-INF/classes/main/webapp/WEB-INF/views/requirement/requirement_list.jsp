@@ -25,17 +25,17 @@
 
     <!-- logo -->
     <div id="logo" class="sidebar-header">
-        &nbsp;<h4>基于FSA调度cms系统</h4>
+        <h4>基于FSA调度cms系统</h4>
     </div>
     <div class="lyear-layout-sidebar-scroll">
 
         <nav class="sidebar-main">
             <ul class="nav nav-drawer">
-                <li class="nav-item"> <a href="#"><i class="mdi mdi-home"></i>后台首页</a> </li>
+                <li class="nav-item"> <a href="../system/gowelcome"><i class="mdi mdi-home"></i>后台首页</a> </li>
                 <li class="nav-item nav-item-has-subnav">
                     <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>需求</a>
                     <ul class="nav nav-subnav">
-                        <li> <a href="lyear_ui_buttons.html">需求input</a> </li>
+                        <li> <a href="../requirement/requirement_list.jsp">需求input</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
@@ -65,51 +65,53 @@
             </ul>
         </nav>
 
-        <div class="sidebar-footer">
-            <p class="copyright">Copyright &copy; 2020. <a target="_blank" href="http://www.wulinzeng.vip">WuLiZeng</a> All rights reserved.</p>
-        </div>
+        <jsp:include page="../system/footer.jsp"></jsp:include>
     </div>
 
 </aside>
 <!--End 左侧导航-->
 
 <!--头部信息-->
-<header class="lyear-layout-header">
+<jsp:include page="../system/header.jsp"></jsp:include>
+<!--End 头部信息-->
 
-    <nav class="navbar navbar-default">
-        <div class="topbar">
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
 
-            <div class="topbar-left">
-                <div class="lyear-aside-toggler">
-                    <span class="lyear-toggler-bar"></span>
-                    <span class="lyear-toggler-bar"></span>
-                    <span class="lyear-toggler-bar"></span>
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <form method="post" action="../requirement/add" class="site-form">
+                                <div class="form-group">
+                                    <label for="projectname">项目名</label>
+                                    <input  class="form-control" name=""projectname id="projectname" placeholder="输入项目名">
+                                </div>
+                                <div class="form-group">
+                                    <label for="personname">人员姓名</label>
+                                    <input  class="form-control" name="personname" id="personname" placeholder="输入项目人员">
+                                </div>
+                                <div class="form-group">
+                                    <label for="worktingm">工时</label>
+                                    <input  class="form-control" name="worktingm" id="worktingm" placeholder="请按小时为单位输入人员工时">
+                                </div>
+                                <button type="submit" id="confrm" class="btn btn-primary">确认</button>
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
-                <span class="navbar-page-title"> FSA - 调度 </span>
+
             </div>
 
-            <ul class="topbar-right">
-                <li class="dropdown dropdown-profile">
-                    <a href="javascript:void(0)" data-toggle="dropdown">
-                        <img class="img-avatar img-avatar-48 m-r-10" src="../images/users/avatar.jpg" alt="FSA调度" />
-                        <span>WuLiZeng <span class="caret"></span></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li> <a href="#"><i class="mdi mdi-account"></i> 个人信息</a> </li>
-                        <li> <a href="#"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
-                        <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
-                        <li class="divider"></li>
-                        <li> <a href="#"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
-                    </ul>
-                </li>
-
-            </ul>
-
         </div>
-    </nav>
 
-</header>
-<!--End 头部信息-->
+    </main>
+    <!--End 页面主要内容-->
+
 
 </div>
 
@@ -120,5 +122,32 @@
 <script src="../js/jquery-tags-input/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="../js/main.min.js"></script>
 
+<%--<script>--%>
+
+<%--    $(function(){--%>
+<%--        $("#confrm").click(function() {--%>
+<%--            $.ajax({--%>
+<%--                url : "../requirement/add",--%>
+<%--                type : "POST",--%>
+<%--                dataType:"json",--%>
+<%--                contentType : "application/json;charset=UTF-8",--%>
+<%--                <!-- 向后端传输的数据 -->--%>
+<%--                data : JSON.stringify({--%>
+<%--                    projectname : $("#projectname").val(),--%>
+<%--                    personname : $("#personname").val(),--%>
+<%--                    worktingm : $("#worktingm").val(),--%>
+<%--                }),--%>
+<%--                success:function(result) {--%>
+<%--                    <!-- 处理后端返回的数据 -->--%>
+<%--                    var message= JSON.stringify(result);--%>
+<%--                    console.log("mm:  "+message)--%>
+<%--                },--%>
+<%--                error:function(result){--%>
+<%--                    console.log("faile ")--%>
+<%--                }--%>
+<%--            });--%>
+<%--        });--%>
+<%--    });--%>
+<%--</script>--%>
 </body>
 </html>

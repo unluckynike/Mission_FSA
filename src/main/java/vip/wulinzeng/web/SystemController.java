@@ -29,4 +29,13 @@ public class SystemController {
         return module;
     }
 
+    //去后台系统首页
+    @RequestMapping(value = "/gowelcome",method = RequestMethod.GET)
+    public ModelAndView gowelcome(ModelAndView module) {
+        System.out.println("测试环境执行");
+        module.addObject("testInfor", "添加成功");
+        module.setViewName("system/welcome");
+        return module;
+    }
+
 }
