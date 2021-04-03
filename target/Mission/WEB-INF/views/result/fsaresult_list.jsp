@@ -40,55 +40,56 @@
                         <div class="masonry-grid" data-provide="photoswipe">
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/1.jpg" alt="The selected child description">
+<%--                                <img src="${pageContext.request.contextPath}/src/main/webapp/images/gallery/n.jpg" alt="The selected child description">--%>
+                                <img src="../images/gallery/n.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/5.jpg" alt="The selected child description">
+                                <img src="../images/gallery/5.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/2.jpg" alt="The selected child description">
+                                    <img src="../images/gallery/2.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/3.jpg" alt="The selected child description">
+                                <img src="../images/gallery/3.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/4.jpg" alt="The selected child description">
+                                <img src="../images/gallery/4.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/9.jpg" alt="The selected child description">
+                                <img src="../images/gallery/9.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/6.jpg" alt="The selected child description">
+                                <img src="../images/gallery/6.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/7.jpg" alt="The selected child description">
+                                <img src="../images/gallery/7.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/8.jpg" alt="The selected child description">
+                                <img src="../images/gallery/8.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/10.jpg" alt="The selected child description">
+                                <img src="../images/gallery/10.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/11.jpg" alt="The selected child description">
+                                <img src="../images/gallery/11.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/13.jpg" alt="The selected child description">
+                                <img src="../images/gallery/13.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="images/gallery/14.jpg" alt="The selected child description">
+                                <img src="../images/gallery/14.jpg" alt="The selected child description">
                             </a>
 
                         </div>
@@ -113,6 +114,5 @@
 <!--标签插件-->
 <script src="../js/jquery-tags-input/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="../js/main.min.js"></script>
-
 </body>
 </html>
