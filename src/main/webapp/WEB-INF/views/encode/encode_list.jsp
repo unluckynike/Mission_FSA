@@ -35,8 +35,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        编码
-                        <form method="post" action="${pageContext.request.contextPath }/fas/" class="site-form" accept-charset="UTF-8">
+                        <div class="alert alert-danger" role="alert">编码</div>
+                        <form method="post" action="${pageContext.request.contextPath }/fas/addencode" class="site-form" accept-charset="UTF-8">
                             <div class="form-group">
                                 <label for="projectname">项目名</label>
                                 <input  class="form-control" name="projectname" id="projectname" placeholder="输入项目名">

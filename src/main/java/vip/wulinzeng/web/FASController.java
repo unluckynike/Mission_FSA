@@ -119,8 +119,7 @@ public class FASController {
             @RequestParam(value = "personname", required = true) String personname,
             @RequestParam(value = "worktingm", required = true) int worktingm,
             ModelAndView modelAndView) {
-        //System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktingm);
-
+        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktingm);
         int flag = encodeService.add(new Encode(projectname, personname, worktingm));
         if (flag > 0) {
             System.out.println("success");

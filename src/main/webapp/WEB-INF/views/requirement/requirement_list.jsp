@@ -37,7 +37,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                       需求
+                          <div class="alert alert-success" role="alert">需求</div>
                             <form method="post" action="${pageContext.request.contextPath }/fas/addrequirementa" class="site-form" accept-charset="UTF-8">
                                 <div class="form-group">
                                     <label for="projectname">项目名</label>

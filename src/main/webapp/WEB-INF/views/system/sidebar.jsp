@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>编码</a>
+                    <a href="javascript:void(0)"><i class="mdi mdi-apple-keyboard-command"></i>编码</a>
                     <ul class="nav nav-subnav">
                         <li> <a href="${pageContext.request.contextPath }/fas/goencode">编码input</a> </li>
                     </ul>

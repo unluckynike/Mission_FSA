@@ -20,7 +20,7 @@ public class Requirement {
 
     //必须有无参构造方法
     public Requirement() {
-        System.out.println("!!!!!!!!!!");
+//        System.out.println("!!!!!!!!!!");
     }
 
     @Override
