@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <div class="sidebar-footer">
-    <p class="copyright">Copyright &copy; 2020. <a target="_blank" href="http://www.wulinzeng.vip">WuLiZeng</a> All rights reserved.</p>
+    <p class="copyright">Copyright &copy; 2020 <a target="_blank" href="http://www.wulinzeng.vip">WuLiZeng</a> all rights reserved.</p>
 </div>
 
 

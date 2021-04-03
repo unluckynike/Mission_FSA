@@ -48,8 +48,8 @@
                                     <input  class="form-control" name="personname" id="personname" placeholder="输入项目人员">
                                 </div>
                                 <div class="form-group">
-                                    <label for="worktingm">工时</label>
-                                    <input  class="form-control" name="worktingm" id="worktingm" placeholder="请按小时为单位输入人员工时">
+                                    <label for="worktime">工时</label>
+                                    <input  class="form-control" name="worktime" id="worktime" placeholder="请按小时为单位输入人员工时">
                                 </div>
                                 <button type="submit" id="confrm" class="btn btn-primary">确认</button>
                             </form>

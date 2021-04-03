@@ -19,7 +19,7 @@ import java.util.List;
 public class ExaminationServiceImpl implements ExaminationService {
 
     @Autowired
-    public ExaminationDao examinationDao;
+    private ExaminationDao examinationDao;
 
     @Override
     public List<Examination> findall() {

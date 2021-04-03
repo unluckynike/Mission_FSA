@@ -20,7 +20,7 @@ import java.util.List;
 public class RequirementServiceImpl implements RequirementService {
 
     @Autowired
-    public RequirementDao requirementDao;
+    private RequirementDao requirementDao;
 
     @Override
     public int add(Requirement requirement) {

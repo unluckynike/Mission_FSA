@@ -1,8 +1,10 @@
 package vip.wulinzeng.web;
 
 import vip.wulinzeng.pojo.Examination;
+import vip.wulinzeng.pojo.Publish;
 import vip.wulinzeng.pojo.Requirement;
 import vip.wulinzeng.service.ExaminationService;
+import vip.wulinzeng.service.PublishService;
 import vip.wulinzeng.service.RequirementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +36,9 @@ public class FASController {
     @Autowired(required = true)
     private ExaminationService examinationService;
 
+    @Autowired(required = true)
+    private PublishService publishService;
+
     /**
      *  栅栏下内容
      * @param modelAndView
@@ -63,11 +68,11 @@ public class FASController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/prodect", method = RequestMethod.GET)
+    @RequestMapping(value = "/gopublish", method = RequestMethod.GET)
     public ModelAndView seeProdect(ModelAndView modelAndView) {
-        System.out.println("prodect mapping getin  ");
+        System.out.println("publish mapping getin  ");
         System.out.println(requirementService.findall());
-        modelAndView.setViewName("prodect/prodect_list");
+        modelAndView.setViewName("publish/publish_list");
         return modelAndView;
     }
 
@@ -90,7 +95,7 @@ public class FASController {
     public ModelAndView addRequrement(
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
-            @RequestParam(value = "worktingm", required = true) int worktime,
+            @RequestParam(value = "worktime", required = true) int worktime,
             ModelAndView modelAndView) {
         //System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktingm);
         int flag = requirementService.add(new Requirement(projectname, personname, worktime));
@@ -121,7 +126,7 @@ public class FASController {
     public ModelAndView addEncode(
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
-            @RequestParam(value = "worktingm", required = true) int worktime,
+            @RequestParam(value = "worktime", required = true) int worktime,
             ModelAndView modelAndView) {
         System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime);
         int flag = encodeService.add(new Encode(projectname, personname, worktime));
@@ -151,17 +156,49 @@ public class FASController {
     public ModelAndView seeExamination(
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
-            @RequestParam(value = "worktingm", required = true) int worktime,
+            @RequestParam(value = "worktime", required = true) int worktime,
             ModelAndView modelAndView) {
         int flag = examinationService.add(new Examination(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
-            modelAndView.setViewName("prodect/prodect_list");
+            modelAndView.setViewName("publish/publish_list");
         } else {
             System.out.println("faild");
         }
         return modelAndView;
     }
+
+
+    /**
+     * 发布 第四道工序
+     * @param projectname
+     * @param personname
+     * @param worktime
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/addpublish",method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView seePublish(
+            @RequestParam(value = "projectname", required = true) String projectname,
+            @RequestParam(value = "personname", required = true) String personname,
+            @RequestParam(value = "worktime", required = true) int worktime,
+            ModelAndView modelAndView){
+        int flag = publishService.add(new Publish(projectname, personname, worktime));
+        if (flag > 0) {
+            System.out.println("success");
+            modelAndView.setViewName("result/fsaresult_list");
+        } else {
+            System.out.println("faild");
+        }
+        return modelAndView;
+    }
+
+
+    /**
+     * fsa调度   出结果
+     */
+
 
 
 }

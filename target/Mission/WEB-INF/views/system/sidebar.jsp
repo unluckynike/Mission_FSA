@@ -10,7 +10,7 @@
 
     <!-- logo -->
     <div id="logo" class="sidebar-header">
-        <h4>基于FSA调度cms系统</h4>
+        <h4 class="list-group-item-heading" >基于FSA调度cms系统</h4>
     </div>
     <div class="lyear-layout-sidebar-scroll">
 
@@ -38,7 +38,7 @@
                 <li class="nav-item nav-item-has-subnav">
                     <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i>发布</a>
                     <ul class="nav nav-subnav">
-                        <li> <a href="${pageContext.request.contextPath }/fas/prodect">发布input</a> </li>
+                        <li> <a href="${pageContext.request.contextPath }/fas/gopublish">发布input</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">

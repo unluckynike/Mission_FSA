@@ -19,7 +19,7 @@ import java.util.List;
 public class EncodeServiceImpl implements EncodeService {
 
     @Autowired
-    public EncodeDao encodeDao;
+    private EncodeDao encodeDao;
 
     @Override
     public List<Encode> findall() {
