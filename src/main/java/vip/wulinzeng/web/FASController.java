@@ -1,6 +1,8 @@
 package vip.wulinzeng.web;
 
+import vip.wulinzeng.pojo.Examination;
 import vip.wulinzeng.pojo.Requirement;
+import vip.wulinzeng.service.ExaminationService;
 import vip.wulinzeng.service.RequirementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,14 +26,16 @@ import vip.wulinzeng.service.EncodeService;
 public class FASController {
 
     @Autowired(required = true)
-    public RequirementService requirementService;
+    private RequirementService requirementService;
 
     @Autowired(required = true)
-      public EncodeService encodeService;
+    private EncodeService encodeService;
+
+    @Autowired(required = true)
+    private ExaminationService examinationService;
 
     /**
-     * 需求 栅栏下内容
-     *
+     *  栅栏下内容
      * @param modelAndView
      * @return
      */
@@ -76,10 +80,9 @@ public class FASController {
     }
 
     /**
-     *
      * @param projectname
      * @param personname
-     * @param worktingm
+     * @param worktime
      * @param modelAndView
      */
     @RequestMapping(value = "/addrequirementa", method = RequestMethod.POST)
@@ -87,13 +90,13 @@ public class FASController {
     public ModelAndView addRequrement(
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
-            @RequestParam(value = "worktingm", required = true) int worktingm,
+            @RequestParam(value = "worktingm", required = true) int worktime,
             ModelAndView modelAndView) {
         //System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktingm);
-        int flag = requirementService.add(new Requirement(projectname, personname, worktingm));
+        int flag = requirementService.add(new Requirement(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
-           modelAndView.setViewName("encode/encode_list");//后续到编码
+            modelAndView.setViewName("encode/encode_list");//后续到编码
         } else {
             System.out.println("faild");
         }
@@ -106,9 +109,10 @@ public class FASController {
 
     /**
      * 编码 第二道工序
+     *
      * @param projectname
      * @param personname
-     * @param worktingm
+     * @param worktime
      * @param modelAndView
      * @return
      */
@@ -117,10 +121,10 @@ public class FASController {
     public ModelAndView addEncode(
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
-            @RequestParam(value = "worktingm", required = true) int worktingm,
+            @RequestParam(value = "worktingm", required = true) int worktime,
             ModelAndView modelAndView) {
-        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktingm);
-        int flag = encodeService.add(new Encode(projectname, personname, worktingm));
+        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime);
+        int flag = encodeService.add(new Encode(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
             modelAndView.setViewName("exam/exam_list");//后续到测试
@@ -132,6 +136,31 @@ public class FASController {
         请求错误处理……
 
          */
+    }
+
+    /**
+     * 编码 第三道工序
+     * @param projectname
+     * @param personname
+     * @param worktime
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/addexamination", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView seeExamination(
+            @RequestParam(value = "projectname", required = true) String projectname,
+            @RequestParam(value = "personname", required = true) String personname,
+            @RequestParam(value = "worktingm", required = true) int worktime,
+            ModelAndView modelAndView) {
+        int flag = examinationService.add(new Examination(projectname, personname, worktime));
+        if (flag > 0) {
+            System.out.println("success");
+            modelAndView.setViewName("prodect/prodect_list");
+        } else {
+            System.out.println("faild");
+        }
+        return modelAndView;
     }
 
 

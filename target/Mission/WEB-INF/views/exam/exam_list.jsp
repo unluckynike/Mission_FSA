@@ -36,7 +36,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-warning" role="alert">测试</div>
-                        <form method="post" action="${pageContext.request.contextPath }/fas/" class="site-form" accept-charset="UTF-8">
+                        <form method="post" action="${pageContext.request.contextPath }/fas/addexamination" class="site-form" accept-charset="UTF-8">
                             <div class="form-group">
                                 <label for="projectname">项目名</label>
                                 <input  class="form-control" name="projectname" id="projectname" placeholder="输入项目名">
