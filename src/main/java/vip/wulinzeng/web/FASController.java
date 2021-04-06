@@ -1,11 +1,8 @@
 package vip.wulinzeng.web;
 
-import vip.wulinzeng.pojo.Examination;
-import vip.wulinzeng.pojo.Publish;
-import vip.wulinzeng.pojo.Requirement;
-import vip.wulinzeng.service.ExaminationService;
-import vip.wulinzeng.service.PublishService;
-import vip.wulinzeng.service.RequirementService;
+import org.python.util.PythonInterpreter;
+import vip.wulinzeng.pojo.*;
+import vip.wulinzeng.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import vip.wulinzeng.pojo.Encode;
-import vip.wulinzeng.service.EncodeService;
 
 /*
 @Name: RequirementController
@@ -27,8 +22,6 @@ import vip.wulinzeng.service.EncodeService;
 @Controller
 public class FASController {
 
-    public int PEOPLE_COUNT=0;
-
     @Autowired(required = true)
     private RequirementService requirementService;
 
@@ -40,6 +33,9 @@ public class FASController {
 
     @Autowired(required = true)
     private PublishService publishService;
+
+    @Autowired(required = true)
+    private PeopleService peopleService;
 
     /**
      *  栅栏下内容
@@ -100,8 +96,8 @@ public class FASController {
             @RequestParam(value = "worktime", required = true) int worktime,
             @RequestParam(value = "peoplecount", required = true) int peoplecount,
             ModelAndView modelAndView) {
-        PEOPLE_COUNT=peoplecount;//peoplecount come from input
         System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime+"   "+peoplecount);
+        peopleService.add(new People(peoplecount));        //peoplecount come from input
         int flag = requirementService.add(new Requirement(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
@@ -191,6 +187,12 @@ public class FASController {
         int flag = publishService.add(new Publish(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
+            PythonInterpreter interpreter = new PythonInterpreter();
+            interpreter.execfile("/Users/zhouhailin/PycharmProjects/pythonProject/bisai/GA.py ");
+
+
+
+
             modelAndView.setViewName("result/fsaresult_list");
         } else {
             System.out.println("faild");

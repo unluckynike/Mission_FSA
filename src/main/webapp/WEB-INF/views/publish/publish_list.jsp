@@ -15,6 +15,8 @@
 <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/bootstrap.min.css" >
 <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/materialdesignicons.min.css" >
 <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/style.min.css" >
+    <!--滑块插件-->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/js/ion-rangeslider/ion.rangeSlider.min.css">
 </head>
 <body>
 
@@ -36,6 +38,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-warning" role="alert">发布</div>
+                        <div class="m-b-10">
+                            <input id="range_09">
+                            <small class="form-text text-muted">一个字符串示例</small>
+                        </div>
                         <form method="post" action="${pageContext.request.contextPath }/fas/addpublish" class="site-form" accept-charset="UTF-8">
                             <div class="form-group">
                                 <label for="projectname">项目名</label>
@@ -50,6 +56,8 @@
                                 <input  class="form-control" name="worktime" id="worktime" placeholder="请按小时为单位输入人员工时">
                             </div>
                             <button type="submit" id="confrm" class="btn btn-primary">确认</button>
+                            <button type="reset" class="btn btn-default" target-form="add-form">撤销</button>
+                            <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
                         </form>
 
                     </div>
@@ -69,6 +77,22 @@
 <!--标签插件-->
 <script src="../js/jquery-tags-input/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="../js/main.min.js"></script>
+<!--滑块插件-->
+<script src="../js/ion-rangeslider/ion.rangeSlider.min.js"></script>
 
+<script>
+    $(function() {
+        $("#range_09").ionRangeSlider({
+            grid: true,
+            from: 3,
+            values: [
+                "一月", "二月", "三月",
+                "四月", "五月", "六月",
+                "七月", "八月", "九月",
+                "十月", "十一月", "十二月"
+            ]
+        });
+    });
+</script>
 </body>
 </html>

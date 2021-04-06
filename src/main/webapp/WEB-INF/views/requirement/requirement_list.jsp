@@ -56,6 +56,8 @@
                                     <input  class="form-control" name="worktime" id="worktime" placeholder="请按小时为单位输入人员工时">
                                 </div>
                                 <button type="submit" id="confrm" class="btn btn-primary">确认</button>
+                                <button type="reset" class="btn btn-default" target-form="add-form">撤销</button>
+                                <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
                             </form>
 
                         </div>

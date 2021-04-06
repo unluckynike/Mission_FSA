@@ -41,16 +41,16 @@
 
                             <a class="masonry-item" href="#">
 <%--                                <img src="${pageContext.request.contextPath}/src/main/webapp/images/gallery/n.jpg" alt="The selected child description">--%>
-                                <img src="../images/gallery/n.jpg" alt="The selected child description">
+                                <img src="../images/gallery/n.jpg"  alt="The selected child description">
                             </a>
 
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/1.jpg" alt="The selected child description">
-                            </a>
+<%--                            <a class="masonry-item" href="#">--%>
+<%--                                <img src="../images/gallery/m.jpg" alt="The selected child description">--%>
+<%--                            </a>--%>
 
-                            <a class="masonry-item" href="#">
-                                    <img src="../images/gallery/3.jpg" alt="The selected child description">
-                            </a>
+<%--                            <a class="masonry-item" href="#">--%>
+<%--                                    <img src="../images/gallery/3.jpg" alt="The selected child description">--%>
+<%--                            </a>--%>
 
                         </div>
 

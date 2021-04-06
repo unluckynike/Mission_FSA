@@ -47,7 +47,7 @@
         <div class="error-body text-center">
             <h1>404</h1>
             <h4>很抱歉，但是那个页面看起来已经不存在了。</h4>
-            <a href="../views/system/index.jsp" class="btn btn-primary ">返回首页</a>
+            <button onclick="javascript:history.back(-1);return false;" class="btn btn-primary ">返回</button>
         </div>
     </div>
 </section>
