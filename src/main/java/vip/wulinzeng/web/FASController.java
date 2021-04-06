@@ -27,6 +27,8 @@ import vip.wulinzeng.service.EncodeService;
 @Controller
 public class FASController {
 
+    public int PEOPLE_COUNT=0;
+
     @Autowired(required = true)
     private RequirementService requirementService;
 
@@ -96,8 +98,10 @@ public class FASController {
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
             @RequestParam(value = "worktime", required = true) int worktime,
+            @RequestParam(value = "peoplecount", required = true) int peoplecount,
             ModelAndView modelAndView) {
-        //System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktingm);
+        PEOPLE_COUNT=peoplecount;//peoplecount come from input
+        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime+"   "+peoplecount);
         int flag = requirementService.add(new Requirement(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");

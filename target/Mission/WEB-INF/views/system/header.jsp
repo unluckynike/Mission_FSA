@@ -17,7 +17,7 @@
                     <span class="lyear-toggler-bar"></span>
                     <span class="lyear-toggler-bar"></span>
                 </div>
-                <span class="navbar-page-title"> FSA - 调度 </span>
+                <span class="navbar-page-title"> 基于遗传算法的软件项目智慧调度系统 </span>
             </div>
 
             <ul class="topbar-right">

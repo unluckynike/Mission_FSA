@@ -106,7 +106,7 @@
 
 <body>
 <div class="lyear-login-box">
-    <div class="lyear-login-left" style="background-image: url(../images/login-bg-4.jpg)">
+    <div class="lyear-login-left" style="background-image: url(../images/discuss.jpg)">
         <div class="lyear-overlay"></div>
         <div class="lyear-featured">
             <h4>愿你有好运气，如果没有，愿你在不幸中学会慈悲；愿你被很多人爱，如果没有，愿你在寂寞中学会宽容。<small> - 刘瑜《愿你慢慢长大》</small></h4>
@@ -115,7 +115,7 @@
     <div class="lyear-login-right">
 
         <div class="lyear-logo text-center">
-            <a href="#!"><img src="../images/logo-sidebar.png" alt="logo" /></a>
+           <h2>基于遗传算法的软件项目智慧调度系统</h2>
         </div>
         <form action="../system/login" method="post">
             <div class="form-group">

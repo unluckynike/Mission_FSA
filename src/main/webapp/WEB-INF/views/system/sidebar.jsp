@@ -10,7 +10,7 @@
 
     <!-- logo -->
     <div id="logo" class="sidebar-header">
-        <h4 class="list-group-item-heading" >基于FSA调度cms系统</h4>
+        <h4 class="list-group-item-heading" >软件项目智慧调度系统</h4>
     </div>
     <div class="lyear-layout-sidebar-scroll">
 

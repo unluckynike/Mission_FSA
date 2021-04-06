@@ -52,46 +52,6 @@
                                     <img src="../images/gallery/2.jpg" alt="The selected child description">
                             </a>
 
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/3.jpg" alt="The selected child description">
-                            </a>
-
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/4.jpg" alt="The selected child description">
-                            </a>
-
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/9.jpg" alt="The selected child description">
-                            </a>
-
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/6.jpg" alt="The selected child description">
-                            </a>
-
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/7.jpg" alt="The selected child description">
-                            </a>
-
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/8.jpg" alt="The selected child description">
-                            </a>
-
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/10.jpg" alt="The selected child description">
-                            </a>
-
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/11.jpg" alt="The selected child description">
-                            </a>
-
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/13.jpg" alt="The selected child description">
-                            </a>
-
-                            <a class="masonry-item" href="#">
-                                <img src="../images/gallery/14.jpg" alt="The selected child description">
-                            </a>
-
                         </div>
 
                     </div>
@@ -99,13 +59,10 @@
             </div>
 
         </div>
-
     </div>
 
 </main>
 <!--End 页面主要内容-->
-
-
 
 
 <script type="text/javascript" src="../js/jquery.min.js"></script>
