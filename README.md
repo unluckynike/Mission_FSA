@@ -6,13 +6,21 @@ FSA-CMS
 
 ![](infor/img/0.png)
 
-- 👀需求   第一道工序
+![](infor/img/登陆.png)
+
+**👀需求   第一道工序**
 
 ![](infor/img/需求.png)
 
-- 💻编码   第二道工序
+**💻编码   第二道工序**
 
-![](infor/img/编码.png)
+**👨‍💻测试   第三道工序**
+
+**🎬发布   第四道工序**
+
+**🧐fsa调度结果**
+
+![](infor/img/result.png)
 
 
 

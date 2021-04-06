@@ -45,11 +45,11 @@
                             </a>
 
                             <a class="masonry-item" href="#">
-                                <img src="../images/gallery/5.jpg" alt="The selected child description">
+                                <img src="../images/gallery/1.jpg" alt="The selected child description">
                             </a>
 
                             <a class="masonry-item" href="#">
-                                    <img src="../images/gallery/2.jpg" alt="The selected child description">
+                                    <img src="../images/gallery/3.jpg" alt="The selected child description">
                             </a>
 
                         </div>
