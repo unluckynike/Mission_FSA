@@ -34,13 +34,19 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-warning" role="alert">发布</div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="example-disabled-input">总人数</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="example-disabled-input" name="example-disabled-input" placeholder="${peopelCount}" disabled>
+                            </div>
+                        </div>
                         <div class="m-b-10">
                             <input id="range_09">
-                            <small class="form-text text-muted">一个字符串示例</small>
+                            <small class="form-text text-muted"></small>
                         </div>
                         <form method="post" action="${pageContext.request.contextPath }/fas/addpublish" class="site-form" accept-charset="UTF-8">
                             <div class="form-group">

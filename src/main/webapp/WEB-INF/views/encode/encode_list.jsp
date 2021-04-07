@@ -32,10 +32,16 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-danger" role="alert">编码</div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="example-disabled-input">总人数</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="example-disabled-input" name="example-disabled-input" placeholder="${peopelCount}" disabled>
+                            </div>
+                        </div>
                         <form method="post" action="${pageContext.request.contextPath }/fas/addencode" class="site-form" accept-charset="UTF-8">
                             <div class="form-group">
                                 <label for="projectname">项目名</label>
@@ -46,8 +52,8 @@
                                 <input  class="form-control" name="personname" id="personname" placeholder="输入项目人员">
                             </div>
                             <div class="form-group">
-                                <label for="worktingm">工时</label>
-                                <input  class="form-control" name="worktingm" id="worktingm" placeholder="请按小时为单位输入人员工时">
+                                <label for="worktime">工时</label>
+                                <input  class="form-control" name="worktime" id="worktime" placeholder="请按小时为单位输入人员工时">
                             </div>
                             <button type="submit" id="confrm" class="btn btn-primary">确认</button>
                             <button type="reset" class="btn btn-default" target-form="add-form">撤销</button>

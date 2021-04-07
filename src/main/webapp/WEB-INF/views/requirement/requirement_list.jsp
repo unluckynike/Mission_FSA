@@ -34,15 +34,17 @@
         <div class="container-fluid">
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
                           <div class="alert alert-success" role="alert">需求</div>
-                            <form method="post" action="${pageContext.request.contextPath }/fas/addrequirementa" class="site-form" accept-charset="UTF-8">
-                                <div class="form-group">
-                                    <label for="peoplecount">人数</label>
-                                    <input  class="form-control" name="peoplecount" id="peoplecount" placeholder="输入项目名总人数">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="example-disabled-input">总人数</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="example-disabled-input" name="example-disabled-input" placeholder="${peopelCount}" disabled>
                                 </div>
+                            </div>
+                            <form method="post" action="${pageContext.request.contextPath }/fas/addrequirementa" class="site-form" accept-charset="UTF-8">
                                 <div class="form-group">
                                     <label for="projectname">项目名</label>
                                     <input  class="form-control" name="projectname" id="projectname" placeholder="输入项目名">

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 /*
 @Name: RequirementController
 @Author: zhouhailin
@@ -36,6 +38,27 @@ public class FASController {
 
     @Autowired(required = true)
     private PeopleService peopleService;
+
+    /**
+     * 总人数
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/gopeople", method = RequestMethod.GET)
+    public ModelAndView seePeopleTotal(ModelAndView modelAndView) {
+        System.out.println("gopeople mapping getin  ");
+        modelAndView.setViewName("people/people_list");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/setpeopel",method = RequestMethod.POST)
+    public ModelAndView setPeopleTotal(ModelAndView modelAndView, HttpServletRequest request,
+                                       @RequestParam(value = "peoplecount", required = true) int peoplecount){
+        peopleService.add(new People(peoplecount));        //peoplecount come from input
+        request.getSession().setAttribute("peopelCount",peoplecount);
+        modelAndView.setViewName("requirement/requirement_list");
+        return modelAndView;
+    }
 
     /**
      *  栅栏下内容
@@ -74,11 +97,19 @@ public class FASController {
         return modelAndView;
     }
 
+    /**
+     *  fsa
+     * @param modelAndView
+     * @return
+     */
     @RequestMapping(value = "/fsaresult", method = RequestMethod.GET)
     public ModelAndView seeFSAResult(ModelAndView modelAndView) {
         System.out.println("fsaresult mapping getin  ");
-        System.out.println(requirementService.findall());
         modelAndView.setViewName("result/fsaresult_list");
+        /**
+         * fsa调度   出结果
+         */
+
         return modelAndView;
     }
 
@@ -94,10 +125,8 @@ public class FASController {
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
             @RequestParam(value = "worktime", required = true) int worktime,
-            @RequestParam(value = "peoplecount", required = true) int peoplecount,
             ModelAndView modelAndView) {
-        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime+"   "+peoplecount);
-        peopleService.add(new People(peoplecount));        //peoplecount come from input
+        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime+"   ");
         int flag = requirementService.add(new Requirement(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
@@ -187,13 +216,10 @@ public class FASController {
         int flag = publishService.add(new Publish(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
-            PythonInterpreter interpreter = new PythonInterpreter();
-            interpreter.execfile("/Users/zhouhailin/PycharmProjects/pythonProject/bisai/GA.py ");
-
-
-
-
-            modelAndView.setViewName("result/fsaresult_list");
+//            PythonInterpreter interpreter = new PythonInterpreter();
+//            interpreter.execfile("/Users/zhouhailin/PycharmProjects/pythonProject/bisai/GA.py ");
+//
+            modelAndView.setViewName("requirement/requirement_list");
         } else {
             System.out.println("faild");
         }
@@ -201,9 +227,6 @@ public class FASController {
     }
 
 
-    /**
-     * fsa调度   出结果
-     */
 
 
 

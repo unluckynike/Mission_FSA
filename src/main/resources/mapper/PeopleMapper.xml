@@ -9,7 +9,7 @@
     </select>
 
     <update id="add" parameterType="People" >
-        INSERT INTO people(id,count) VALUES(NULL,#{count})
+        UPDATE people SET count=#{count} WHERE id=1
     </update>
 
 </mapper>

@@ -32,9 +32,10 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
+
                         <div class="alert alert-warning" role="alert">测试</div>
                         <form method="post" action="${pageContext.request.contextPath }/fas/addexamination" class="site-form" accept-charset="UTF-8">
                             <div class="form-group">

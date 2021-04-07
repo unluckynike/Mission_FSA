@@ -33,6 +33,33 @@
 
         <div class="row">
 
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header"><h4>研发</h4></div>
+                    <div class="card-body">
+                        <canvas id="chart-pie" width="280" height="280"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header"><h4>进展</h4></div>
+                    <div class="card-body">
+                        <canvas id="chart-polar" width="280" height="280"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header"><h4>产品</h4></div>
+                    <div class="card-body">
+                        <canvas id="chart-line-4" width="280" height="210"></canvas>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
@@ -165,9 +192,77 @@
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="../js/Chart.js"></script>
 <!--标签插件-->
 <script src="../js/jquery-tags-input/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="../js/main.min.js"></script>
+<script type="text/javascript">
+    new Chart($("#chart-polar"), {
+        type: 'polarArea',
+        data: {
+            datasets: [{
+                data: [11, 16, 7, 3, 14],
+                backgroundColor: ['rgba(255,99,132,0.95)', 'rgba(75, 192, 192, 0.95)', 'rgba(255, 159, 64, 0.95)', 'rgba(231, 233, 237, 0.95)', 'rgba(54, 162, 235, 0.95)'],
+                label: 'My dataset' // for legend
+            }],
+            labels: ["需求阶段", "编码阶段", "测试阶段", "发布阶段", "已部署"]
+        },
+        options: {
+            responsive: false,
+            legend: {
+                display: false
+            }
+        }
+    });
 
+    new Chart($("#chart-pie"), {
+        type: 'pie',
+        data: {
+            labels: ["紧急", "完成", "进行"],
+            datasets: [{
+                data: [300, 50, 100],
+                backgroundColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)']
+            }]
+        },
+        options: {
+            responsive: false
+        }
+    });
+
+
+    new Chart($("#chart-line-4"), {
+        type: 'line',
+        data: {
+            labels: ["一月", "二月", "三月", "四月"],
+            datasets: [{
+                label: "pv",
+                fill: false,
+                borderWidth: 3,
+                pointRadius: 4,
+                borderColor: "#36a2eb",
+                backgroundColor: "#36a2eb",
+                pointBackgroundColor: "#36a2eb",
+                pointBorderColor: "#36a2eb",
+                pointHoverBackgroundColor: "#fff",
+                pointHoverBorderColor: "#36a2eb",
+                data: [30, 25, 35, 23]
+            },
+                {
+                    label: "uv",
+                    fill: false,
+                    borderWidth: 3,
+                    pointRadius: 4,
+                    borderColor: "#ff6384",
+                    backgroundColor: "#ff6384",
+                    pointBackgroundColor: "#ff6384",
+                    pointBorderColor: "#ff6384",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "#ff6384",
+                    data: [23, 29, 30, 33]
+                }]
+        },
+        options: {}
+    });
+</script>
 </body>
 </html>

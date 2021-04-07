@@ -32,9 +32,10 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
+
                         <div class="alert alert-warning" role="alert">测试</div>
                         <form method="post" action="${pageContext.request.contextPath }/fas/addexamination" class="site-form" accept-charset="UTF-8">
                             <div class="form-group">
@@ -50,6 +51,8 @@
                                 <input  class="form-control" name="worktime" id="worktime" placeholder="请按小时为单位输入人员工时">
                             </div>
                             <button type="submit" id="confrm" class="btn btn-primary">确认</button>
+                            <button type="reset" class="btn btn-default" target-form="add-form">撤销</button>
+                            <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
                         </form>
 
                     </div>
