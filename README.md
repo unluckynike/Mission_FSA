@@ -4,7 +4,7 @@ FSA-CMS
 
 ### 🏞待定界面
 
-![](infor/img/0.png)
+![](infor/img/welcome.png)
 
 ![](infor/img/登陆.png)
 
