@@ -33,12 +33,10 @@
     <div class="container-fluid">
  <p> FSA  调度算法结果</p>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-">
                 <div class="card">
                     <div class="card-body">
-
                         <div class="masonry-grid" data-provide="photoswipe">
-
                             <a class="masonry-item" href="#">
 <%--                                <img src="${pageContext.request.contextPath}/src/main/webapp/images/gallery/n.jpg" alt="The selected child description">--%>
                                 <img src="../images/gallery/n.jpg"  alt="The selected child description">
