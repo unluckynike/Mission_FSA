@@ -305,18 +305,16 @@ public class FASController {
         modelAndView.setViewName("requirement/requirement_edit");
         return modelAndView;
     }
-
     @RequestMapping(value = "/doeditrequirement",method = RequestMethod.POST)
     public String doEditeRequirement(@RequestParam(value = "id")int id,
                                      @RequestParam(value = "projectname", required = true) String projectname,
                                      @RequestParam(value = "personname", required = true) String personname,
                                      @RequestParam(value = "worktime", required = true) int worktime){
-        System.out.println("di  : "+id);
-
-
-
-
+        requirementService.edit(new Requirement(id,projectname,personname,worktime));
         return "redirect:/fas/queryrequirement";
     }
+
+
+
 
 }

@@ -20,7 +20,20 @@ public class Requirement {
 
     //必须有无参构造方法
     public Requirement() {
-//        System.out.println("!!!!!!!!!!");
+//        System.out.println("!!!!!!!!!!");//容器测试
+    }
+
+    public Requirement(String projectname, String personname, int worktime) {
+        this.projectname = projectname;
+        this.personname = personname;
+        this.worktime = worktime;
+    }
+
+    public Requirement(int id, String projectname, String personname, int worktime) {
+        this.id = id;
+        this.projectname = projectname;
+        this.personname = personname;
+        this.worktime = worktime;
     }
 
     @Override
@@ -65,9 +78,5 @@ public class Requirement {
         this.worktime = worktime;
     }
 
-    public Requirement(String projectname, String personname, int worktime) {
-        this.projectname = projectname;
-        this.personname = personname;
-        this.worktime = worktime;
-    }
+
 }

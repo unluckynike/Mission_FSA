@@ -5,19 +5,23 @@
 <mapper namespace="vip.wulinzeng.dao.RequirementDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
     <select id="findall" resultType="Requirement">
-        select * from requirements
+        select * from requirement
     </select>
 
     <select id="findOne" parameterType="int" resultType="Requirement">
-        SELECT * FROM requirements WHERE id=#{id}
+        SELECT * FROM requirement WHERE id=#{id}
     </select>
 
     <update id="add" parameterType="Requirement" >
-        insert into requirements(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
+        insert into requirement(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
+    </update>
+
+    <update id="edit" parameterType="Requirement" >
+        UPDATE requirement SET projectname=#{projectname}, personname=#{personname}, worktime=#{worktime} WHERE id=#{id}
     </update>
 
     <update id="delete" parameterType="int" >
-        delete from requirements where id=#{id}
+        delete from requirement where id=#{id}
     </update>
 
 </mapper>
