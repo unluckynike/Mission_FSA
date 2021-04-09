@@ -25,6 +25,9 @@ import javax.servlet.http.HttpServletRequest;
 public class FASController {
 
     @Autowired(required = true)
+    private DesignService designService;
+
+    @Autowired(required = true)
     private RequirementService requirementService;
 
     @Autowired(required = true)
@@ -61,14 +64,21 @@ public class FASController {
     }
 
     /**
-     *  栅栏下内容
+     * 栅栏下内容
      * @param modelAndView
      * @return
      */
+
+    @RequestMapping(value = "/godesign",method = RequestMethod.GET)
+    public ModelAndView seeDesign(ModelAndView modelAndView){
+        System.out.println("godesigin mappting get in");
+        modelAndView.setViewName("design/design_list");
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/gorequirement", method = RequestMethod.GET)
     public ModelAndView seeRequirement(ModelAndView modelAndView) {
         System.out.println("mapping getin  ");
-        System.out.println(requirementService.findall());
         modelAndView.setViewName("requirement/requirement_list");
         return modelAndView;
     }
@@ -76,7 +86,6 @@ public class FASController {
     @RequestMapping(value = "/goencode", method = RequestMethod.GET)
     public ModelAndView seeEncode(ModelAndView modelAndView) {
         System.out.println("goencode mapping getin  ");
-        System.out.println(requirementService.findall());
         modelAndView.setViewName("encode/encode_list");
         return modelAndView;
     }
@@ -84,7 +93,6 @@ public class FASController {
     @RequestMapping(value = "/goexam", method = RequestMethod.GET)
     public ModelAndView seeExam(ModelAndView modelAndView) {
         System.out.println("goexam mapping getin  ");
-        System.out.println(requirementService.findall());
         modelAndView.setViewName("exam/exam_list");
         return modelAndView;
     }
@@ -92,8 +100,13 @@ public class FASController {
     @RequestMapping(value = "/gopublish", method = RequestMethod.GET)
     public ModelAndView seeProdect(ModelAndView modelAndView) {
         System.out.println("publish mapping getin  ");
-        System.out.println(requirementService.findall());
         modelAndView.setViewName("publish/publish_list");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/gomaintenance",method = RequestMethod.GET)
+    public ModelAndView seeMaintenance(ModelAndView modelAndView){
+        modelAndView.setViewName("maintenance/maintenance_list");
         return modelAndView;
     }
 
@@ -110,6 +123,25 @@ public class FASController {
          * fsa调度   出结果
          */
 
+        return modelAndView;
+    }
+
+
+    //put in
+    @RequestMapping(value = "/adddesign",method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView addDesign( @RequestParam(value = "projectname", required = true) String projectname,
+                                   @RequestParam(value = "personname", required = true) String personname,
+                                   @RequestParam(value = "worktime", required = true) int worktime,
+                                   ModelAndView modelAndView){
+        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime+"   ");
+        int flag = designService.add(new Design(projectname, personname, worktime));
+        if (flag > 0) {
+            System.out.println("success");
+            modelAndView.setViewName("requirement/requirement_list");//后续到需求
+        } else {
+            System.out.println("faild");
+        }
         return modelAndView;
     }
 

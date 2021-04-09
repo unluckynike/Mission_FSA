@@ -10,7 +10,7 @@
 
     <!-- logo -->
     <div id="logo" class="sidebar-header">
-        <h4 class="list-group-item-heading" >软件项目智慧调度系统</h4>
+        <h3 class="list-group-item-heading" >软件项目智慧调度及管理系统</h3>
     </div>
     <div class="lyear-layout-sidebar-scroll">
 
@@ -19,33 +19,46 @@
                 <li class="nav-item"> <a href="${pageContext.request.contextPath }/system/gowelcome"><i class="mdi mdi-home"></i>后台首页</a> </li>
                 <li class="nav-item"> <a href="${pageContext.request.contextPath }/fas/gopeople"><i class="mdi mdi-account"></i>总人数</a> </li>
                 <li class="nav-item nav-item-has-subnav">
+                    <a href="javascript:void(0)"><i class="mdi mdi-creation"></i>设计</a>
+                    <ul class="nav nav-subnav">
+                        <li> <a href="${pageContext.request.contextPath }/fas/godesign">录入设计</a> </li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-has-subnav">
                     <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>需求</a>
                     <ul class="nav nav-subnav">
-                        <li> <a href="${pageContext.request.contextPath }/fas/gorequirement">需求INPUT</a> </li>
+                        <li> <a href="${pageContext.request.contextPath }/fas/gorequirement">录入需求</a> </li>
+                        <li> <a href="${pageContext.request.contextPath }/fas/queryrequirement">查询需求</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
                     <a href="javascript:void(0)"><i class="mdi mdi-apple-keyboard-command"></i>编码</a>
                     <ul class="nav nav-subnav">
-                        <li> <a href="${pageContext.request.contextPath }/fas/goencode">编码INPUT</a> </li>
+                        <li> <a href="${pageContext.request.contextPath }/fas/goencode">录入编码</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
                     <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>测试</a>
                     <ul class="nav nav-subnav">
-                        <li> <a href="${pageContext.request.contextPath }/fas/goexam">测试INPUT</a> </li>
+                        <li> <a href="${pageContext.request.contextPath }/fas/goexam">录入测试</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
                     <a href="javascript:void(0)"><i class="mdi mdi-ungroup"></i>发布</a>
                     <ul class="nav nav-subnav">
-                        <li> <a href="${pageContext.request.contextPath }/fas/gopublish">发布INPUT</a> </li>
+                        <li> <a href="${pageContext.request.contextPath }/fas/gopublish">录入发布</a> </li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-has-subnav">
+                    <a href="javascript:void(0)"><i class="mdi mdi-chart-timeline"></i>维护</a>
+                    <ul class="nav nav-subnav">
+                        <li> <a href="${pageContext.request.contextPath }/fas/gomaintenance">录入维护</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
                     <a href="javascript:void(0)"><i class="mdi mdi-access-point"></i>调度结果</a>
                     <ul class="nav nav-subnav">
-                        <li> <a href="${pageContext.request.contextPath }/fas/fsaresult">RESULT</a> </li>
+                        <li> <a href="${pageContext.request.contextPath }/fas/fsaresult">结果</a> </li>
                     </ul>
                 </li>
             </ul>
