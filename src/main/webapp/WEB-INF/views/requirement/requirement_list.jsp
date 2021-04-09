@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: zhouhailin
@@ -37,13 +38,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                          <div class="alert alert-success" role="alert">需求</div>
-                            <div class="form-group">
-                                <label class="col-xs-12" for="example-disabled-input">总人数</label>
-                                <div class="col-xs-12">
-                                    <input class="form-control" type="text" id="example-disabled-input" name="example-disabled-input" placeholder="${peopelCount}" disabled>
-                                </div>
-                            </div>
+                          <div class="alert alert-info" role="alert">需求</div>
                             <form method="post" action="${pageContext.request.contextPath }/fas/addrequirementa" class="site-form" accept-charset="UTF-8">
                                 <div class="form-group">
                                     <label for="projectname">项目编号</label>
@@ -61,6 +56,54 @@
                                 <button type="reset" class="btn btn-default" target-form="add-form">撤销</button>
                                 <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
                             </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-header bg-purple">
+                            <h4>总人数</h4>
+                            <ul class="card-actions">
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <input class="form-control" type="text" id="example-disabled-input" name="example-disabled-input" placeholder="${peopelCount}" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-header bg-purple">
+                            <button class="btn btn-purple">需求列表</button>
+                            <ul class="card-actions">
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>项目编号</th>
+                                        <th>人员编号</th>
+                                        <th>工时</th>
+                                    </tr>
+                                    </thead>
+                                    <c:forEach items="${requirenments}" var="requirement" varStatus="vs">
+                                        <tbody>
+                                        <tr>
+                                            <td>${requirement.projectname }</td>
+                                            <td>${requirement.personname }</td>
+                                            <td>${requirement.worktime }</td>
+                                        </tr>
+                                        </tbody>
+                                    </c:forEach>
+                                </table>
+                            </div>
+
+
 
                         </div>
                     </div>

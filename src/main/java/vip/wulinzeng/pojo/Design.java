@@ -25,6 +25,13 @@ public class Design {
         this.worktime = worktime;
     }
 
+    public Design(int id, String projectname, String personname, int worktime) {
+        this.id = id;
+        this.projectname = projectname;
+        this.personname = personname;
+        this.worktime = worktime;
+    }
+
     @Override
     public String toString() {
         return "Design{" +

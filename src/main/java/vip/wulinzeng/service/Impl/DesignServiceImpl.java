@@ -30,4 +30,19 @@ public class DesignServiceImpl implements DesignService {
     public int add(Design design) {
         return designDao.add(design);
     }
+
+    @Override
+    public List<Design> findOne(int id) {
+        return designDao.findOne(id);
+    }
+
+    @Override
+    public int delete(int id) {
+        return designDao.delete(id);
+    }
+
+    @Override
+    public int edit(Design design) {
+        return designDao.edit(design);
+    }
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 /*
@@ -83,6 +82,7 @@ public class FASController {
     @RequestMapping(value = "/godesign",method = RequestMethod.GET)
     public ModelAndView seeDesign(ModelAndView modelAndView){
         System.out.println("godesigin mappting get in");
+        modelAndView.addObject("designs",designService.findall());
         modelAndView.setViewName("design/design_list");
         return modelAndView;
     }
@@ -90,6 +90,7 @@ public class FASController {
     @RequestMapping(value = "/gorequirement", method = RequestMethod.GET)
     public ModelAndView seeRequirement(ModelAndView modelAndView) {
         System.out.println("mapping getin  ");
+        modelAndView.addObject("requirenments",requirementService.findall());
         modelAndView.setViewName("requirement/requirement_list");
         return modelAndView;
     }
@@ -149,6 +150,7 @@ public class FASController {
         int flag = designService.add(new Design(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
+            modelAndView.addObject("requirenments",requirementService.findall());
             modelAndView.setViewName("requirement/requirement_list");//后续到需求
         } else {
             System.out.println("faild");
@@ -283,6 +285,25 @@ public class FASController {
     }
 
     //query
+    /**
+     * 设计查询
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/querydesign",method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView queryDesign(ModelAndView modelAndView){
+        System.out.println("findall desigin:"+designService.findall());
+        modelAndView.addObject("designs",designService.findall());
+        modelAndView.setViewName("design/design_query");
+        return modelAndView;
+    }
+
+    /**
+     * 需求查询
+     * @param modelAndView
+     * @return
+     */
     @RequestMapping(value = "/queryrequirement",method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView queryRequirement(ModelAndView modelAndView){
@@ -291,11 +312,18 @@ public class FASController {
         return modelAndView;
     }
 
+
     //delete
     @RequestMapping(value = "/deleterequirement",method = RequestMethod.GET)
     public String deleteRequirement(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView){
         requirementService.delete(deleteid);
         return "redirect:/fas/queryrequirement";
+    }
+
+    @RequestMapping(value = "/deletedesign",method = RequestMethod.GET)
+    public String deleteDesign(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView){
+        designService.delete(deleteid);
+        return "redirect:/fas/querydesign";
     }
 
     //edit
@@ -312,6 +340,27 @@ public class FASController {
                                      @RequestParam(value = "worktime", required = true) int worktime){
         requirementService.edit(new Requirement(id,projectname,personname,worktime));
         return "redirect:/fas/queryrequirement";
+    }
+
+    /**
+     * 设计修改
+     * @param editid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/editdesign",method = RequestMethod.GET)
+    public ModelAndView goEditeDesign(@RequestParam(value = "id")int editid,ModelAndView modelAndView){
+        modelAndView.addObject("designInfor",designService.findOne(editid));
+        modelAndView.setViewName("design/design_edit");
+        return modelAndView;
+    }
+    @RequestMapping(value = "/doeditedesign",method = RequestMethod.POST)
+    public String doEditeDesign(@RequestParam(value = "id")int id,
+                                     @RequestParam(value = "projectname", required = true) String projectname,
+                                     @RequestParam(value = "personname", required = true) String personname,
+                                     @RequestParam(value = "worktime", required = true) int worktime){
+        designService.edit(new Design(id,projectname,personname,worktime));
+        return "redirect:/fas/querydesign";
     }
 
 

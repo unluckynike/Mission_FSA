@@ -8,8 +8,20 @@
         select * from design
     </select>
 
+    <select id="findOne" parameterType="int" resultType="Design">
+        SELECT * FROM design WHERE id=#{id}
+    </select>
+
     <update id="add" parameterType="Design" >
         insert into design(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
+    </update>
+
+    <update id="edit" parameterType="Design" >
+        UPDATE design SET projectname=#{projectname}, personname=#{personname}, worktime=#{worktime} WHERE id=#{id}
+    </update>
+
+    <update id="delete" parameterType="int" >
+        delete from design where id=#{id}
     </update>
 
 </mapper>

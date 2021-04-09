@@ -115,7 +115,8 @@
     <div class="lyear-login-right">
 
         <div class="lyear-logo text-center">
-           <h2>基于遗传算法的软件项目智慧调度及管理系统</h2>
+<%--           <h2>基于遗传算法的软件项目智慧调度及管理系统</h2>--%>
+        <a href="#!"><img src="../images/title.jpg" alt="logo" /></a>
         </div>
         <form action="../system/login" method="post">
             <div class="form-group">
