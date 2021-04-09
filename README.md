@@ -1,22 +1,42 @@
 # Mission_FSA
 
-FSA-CMS
+### 项目信息
 
-### 🏞待定界面
+JDK版本：jdk1.8
+
+开发工具：IntelliJ IDEA
+
+服务器：Tomcat8.5
+
+数据库：Mysql5.7+Navicate工具
+
+技术构成：Spring+SpringMVC+MyBatis+Bootstrap+Jsp
+
+项目构建：Maven
+
+
+
+### 🏞界面
 
 ![](infor/img/welcome.png)
 
 ![](infor/img/登陆.png)
 
-**👀需求   第一道工序**
+
+
+**✂️设计 第一道工序**
+
+**👀需求   第二道工序**
 
 ![](infor/img/需求.png)
 
-**💻编码   第二道工序**
+**💻编码   第三道工序**
 
-**👨‍💻测试   第三道工序**
+**👨‍💻测试   第四道工序**
 
-**🎬发布   第四道工序**
+**🎬发布   第五道工序**
+
+**👨‍👨‍👦维护 第六道工序**
 
 **🧐fsa调度结果**
 
@@ -26,13 +46,17 @@ FSA-CMS
 
 ### ✂︎模块
 
+design
+
 requirement
 
 encoding
 
 examination
 
-projection
+published
+
+maintenance
 
 
 
@@ -41,6 +65,20 @@ projection
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+----
 
 ----
 
@@ -66,17 +104,9 @@ projection
 
 每人  工时
 
-
-
 ## 3.测试
 
-
-
 ## 4.发布
-
-
-
-----
 
 
 
@@ -96,11 +126,7 @@ projection
 
 项目编号（必要）
 
-
-
 智慧软件项目及管理系统
-
-
 
 ## 需求
 

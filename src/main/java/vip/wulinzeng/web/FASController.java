@@ -292,11 +292,31 @@ public class FASController {
     }
 
     //delete
-    @RequestMapping(value = "deleterequirement",method = RequestMethod.GET)
+    @RequestMapping(value = "/deleterequirement",method = RequestMethod.GET)
     public String deleteRequirement(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView){
         requirementService.delete(deleteid);
         return "redirect:/fas/queryrequirement";
     }
 
+    //edit
+    @RequestMapping(value = "/editrequirement",method = RequestMethod.GET)
+    public ModelAndView goEditRequirement(@RequestParam(value = "id")int editid,ModelAndView modelAndView){
+        modelAndView.addObject("requirementInfor",requirementService.findOne(editid));
+        modelAndView.setViewName("requirement/requirement_edit");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/doeditrequirement",method = RequestMethod.POST)
+    public String doEditeRequirement(@RequestParam(value = "id")int id,
+                                     @RequestParam(value = "projectname", required = true) String projectname,
+                                     @RequestParam(value = "personname", required = true) String personname,
+                                     @RequestParam(value = "worktime", required = true) int worktime){
+        System.out.println("di  : "+id);
+
+
+
+
+        return "redirect:/fas/queryrequirement";
+    }
 
 }

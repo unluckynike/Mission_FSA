@@ -10,7 +10,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>编码（第二道工序)</title>
+    <title>编码</title>
     <link rel="icon" href="favicon.ico" type="image/ico">
     <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/bootstrap.min.css" >
     <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/materialdesignicons.min.css" >
@@ -44,11 +44,11 @@
                         </div>
                         <form method="post" action="${pageContext.request.contextPath }/fas/addencode" class="site-form" accept-charset="UTF-8">
                             <div class="form-group">
-                                <label for="projectname">项目名</label>
+                                <label for="projectname">项目编号</label>
                                 <input  class="form-control" name="projectname" id="projectname" placeholder="输入项目名">
                             </div>
                             <div class="form-group">
-                                <label for="personname">人员姓名</label>
+                                <label for="personname">人员编号</label>
                                 <input  class="form-control" name="personname" id="personname" placeholder="输入项目人员">
                             </div>
                             <div class="form-group">

@@ -10,7 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>需求（第一道工序)</title>
+<title>需求</title>
 <link rel="icon" href="favicon.ico" type="image/ico">
 <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/bootstrap.min.css" >
 <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/materialdesignicons.min.css" >
@@ -69,7 +69,6 @@
             </div>
 
         </div>
-
     </main>
     <!--End 页面主要内容-->
 

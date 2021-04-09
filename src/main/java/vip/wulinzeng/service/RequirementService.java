@@ -9,6 +9,12 @@ import java.util.List;
 public interface RequirementService {
 
     public List<Requirement> findall();
+
     public int add(Requirement requirement);
+
     public int delete(int id);
+
+    public List<Requirement> findOne(int id);
+
+    public int edit(Requirement requirement);
 }

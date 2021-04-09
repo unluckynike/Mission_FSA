@@ -39,10 +39,10 @@
                     <div class="card">
                         <div class="card-toolbar clearfix">
                             <div class="toolbar-btn-action">
-                                <a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>
-                                <a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-check"></i> 启用</a>
-                                <a class="btn btn-warning m-r-5" href="#!"><i class="mdi mdi-block-helper"></i> 禁用</a>
-                                <a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>
+                                <a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-human-greeting"></i>需求列表</a>
+<%--                                <a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-check"></i> 启用</a>--%>
+<%--                                <a class="btn btn-warning m-r-5" href="#!"><i class="mdi mdi-block-helper"></i> 禁用</a>--%>
+<%--                                <a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>--%>
                             </div>
                         </div>
                         <div class="card-body">
@@ -58,18 +58,18 @@
                                         <th>操作</th>
                                     </tr>
                                     </thead>
-                            <c:forEach items="${requirenments}" var="requirenment" varStatus="vs">
+                            <c:forEach items="${requirenments}" var="requirement" varStatus="vs">
                                     <tbody>
                                     <tr>
-                                        <td>${requirenment.id }</td>
-                                        <td>${requirenment.projectname }</td>
-                                        <td>${requirenment.personname }</td>
-                                        <td>${requirenment.worktime }</td>
+                                        <td>${requirement.id }</td>
+                                        <td>${requirement.projectname }</td>
+                                        <td>${requirement.personname }</td>
+                                        <td>${requirement.worktime }</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="btn btn-xs btn-default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                                                <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath }/fas/editrequirement?id=${requirement.id }" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
 <%--                                                <a class="btn btn-xs btn-default" href="#!" title="查看" data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>--%>
-                                                <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath }/fas/deleterequirement?id=${requirenment.id }" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath }/fas/deleterequirement?id=${requirement.id }" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
                                             </div>
                                         </td>
                                     </tr>

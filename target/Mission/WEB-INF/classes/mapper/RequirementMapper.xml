@@ -8,12 +8,16 @@
         select * from requirements
     </select>
 
+    <select id="findOne" parameterType="int" resultType="Requirement">
+        SELECT * FROM requirements WHERE id=#{id}
+    </select>
+
     <update id="add" parameterType="Requirement" >
         insert into requirements(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
     </update>
 
     <update id="delete" parameterType="int" >
-        delete from requirements where id=#{projectname}
+        delete from requirements where id=#{id}
     </update>
 
 </mapper>
