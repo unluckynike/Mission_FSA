@@ -34,7 +34,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-success" role="alert">项目总人数</div>
-                        <form action="${pageContext.request.contextPath }/fas/setpeopel" method="post">
+                        <form action="${pageContext.request.contextPath }/fas/setpeople" method="post">
                             <div class="form-group">
                                 <label for="peoplecount">总人数</label>
                                 <input class="form-control" name="peoplecount" id="peoplecount" placeholder="输入项目名总人数">

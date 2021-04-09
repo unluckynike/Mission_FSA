@@ -31,9 +31,20 @@
 <main class="lyear-layout-content">
 
     <div class="container-fluid">
-        <p> FSA 调度算法结果</p>
+        <div class="card-header"><h4>FSA 调度算法结果</h4></div>
+        <div class="card-body">
+            <div class="m-t-10">
+                <span class="label label-primary-light">1:设计</span>
+                <span class="label label-success-light">2：需求</span>
+                <span class="label label-info-light">3：编码</span>
+                <span class="label label-warning-light">4：测试</span>
+                <span class="label label-danger-light">5：发布</span>
+                <span class="label label-purple-light">6：维护</span>
+            </div>
+        </div>
 
         <%--                                <img src="${pageContext.request.contextPath}/src/main/webapp/images/gallery/n.jpg" alt="The selected child description">--%>
+        <img src="../images/gallery/n.jpg" alt="The selected child description">
         <img src="../images/gallery/n.jpg" alt="The selected child description">
 
 

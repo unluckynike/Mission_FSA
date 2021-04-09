@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Author: zhouhailin
 @Date: 2021/4/9
 @Time: 9:25 上午
-@Description： 
+@Description： 设计
 */
 @Component
 public class Design {

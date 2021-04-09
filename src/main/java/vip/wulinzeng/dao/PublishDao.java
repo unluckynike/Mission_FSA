@@ -1,7 +1,6 @@
 package vip.wulinzeng.dao;
 
 import vip.wulinzeng.pojo.Publish;
-import vip.wulinzeng.pojo.Requirement;
 
 import java.util.List;
 

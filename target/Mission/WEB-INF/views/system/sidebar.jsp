@@ -10,7 +10,7 @@
 
     <!-- logo -->
     <div id="logo" class="sidebar-header">
-        <h3 class="list-group-item-heading" >软件项目智慧调度及管理系统</h3>
+        <h2 class="list-group-item-heading" >软件项目智慧调度及管理系统</h2>
     </div>
     <div class="lyear-layout-sidebar-scroll">
 

@@ -8,13 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>FSA 调度结果</title>
     <link rel="icon" href="favicon.ico" type="image/ico">
-    <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/bootstrap.min.css" >
-    <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/materialdesignicons.min.css" >
-    <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath }/css/style.min.css" >
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/materialdesignicons.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/style.min.css">
 </head>
 <body>
 
@@ -31,32 +31,23 @@
 <main class="lyear-layout-content">
 
     <div class="container-fluid">
- <p> FSA  调度算法结果</p>
-        <div class="row">
-            <div class="col-lg-">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="masonry-grid" data-provide="photoswipe">
-                            <a class="masonry-item" href="#">
-<%--                                <img src="${pageContext.request.contextPath}/src/main/webapp/images/gallery/n.jpg" alt="The selected child description">--%>
-                                <img src="../images/gallery/n.jpg"  alt="The selected child description">
-                            </a>
-
-<%--                            <a class="masonry-item" href="#">--%>
-<%--                                <img src="../images/gallery/m.jpg" alt="The selected child description">--%>
-<%--                            </a>--%>
-
-<%--                            <a class="masonry-item" href="#">--%>
-<%--                                    <img src="../images/gallery/3.jpg" alt="The selected child description">--%>
-<%--                            </a>--%>
-
-                        </div>
-
-                    </div>
-                </div>
+        <div class="card-header"><h4>FSA 调度算法结果</h4></div>
+        <div class="card-body">
+            <div class="m-t-10">
+                <span class="label label-primary-light">1:设计</span>
+                <span class="label label-success-light">2：需求</span>
+                <span class="label label-info-light">3：编码</span>
+                <span class="label label-warning-light">4：测试</span>
+                <span class="label label-danger-light">5：发布</span>
+                <span class="label label-purple-light">6：维护</span>
             </div>
-
         </div>
+
+        <%--                                <img src="${pageContext.request.contextPath}/src/main/webapp/images/gallery/n.jpg" alt="The selected child description">--%>
+        <img src="../images/gallery/n.jpg" alt="The selected child description">
+        <img src="../images/gallery/n.jpg" alt="The selected child description">
+
+
     </div>
 
 </main>

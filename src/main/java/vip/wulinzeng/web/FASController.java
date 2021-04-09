@@ -1,6 +1,5 @@
 package vip.wulinzeng.web;
 
-import org.python.util.PythonInterpreter;
 import vip.wulinzeng.pojo.*;
 import vip.wulinzeng.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +39,11 @@ public class FASController {
     private PublishService publishService;
 
     @Autowired(required = true)
+    private MaintenanceService maintenanceService;
+
+    @Autowired(required = true)
     private PeopleService peopleService;
+
 
     /**
      * 总人数
@@ -54,12 +57,19 @@ public class FASController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/setpeopel",method = RequestMethod.POST)
+    /**
+     *  总人数
+     * @param modelAndView
+     * @param request
+     * @param peoplecount
+     * @return
+     */
+    @RequestMapping(value = "/setpeople",method = RequestMethod.POST)
     public ModelAndView setPeopleTotal(ModelAndView modelAndView, HttpServletRequest request,
                                        @RequestParam(value = "peoplecount", required = true) int peoplecount){
         peopleService.add(new People(peoplecount));        //peoplecount come from input
         request.getSession().setAttribute("peopelCount",peoplecount);
-        modelAndView.setViewName("requirement/requirement_list");
+        modelAndView.setViewName("design/design_list");
         return modelAndView;
     }
 
@@ -174,8 +184,6 @@ public class FASController {
     }
 
     /**
-     * 编码 第二道工序
-     *
      * @param projectname
      * @param personname
      * @param worktime
@@ -205,7 +213,6 @@ public class FASController {
     }
 
     /**
-     * 编码 第三道工序
      * @param projectname
      * @param personname
      * @param worktime
@@ -214,7 +221,7 @@ public class FASController {
      */
     @RequestMapping(value = "/addexamination", method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView seeExamination(
+    public ModelAndView addExamination(
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
             @RequestParam(value = "worktime", required = true) int worktime,
@@ -231,7 +238,6 @@ public class FASController {
 
 
     /**
-     * 发布 第四道工序
      * @param projectname
      * @param personname
      * @param worktime
@@ -240,7 +246,7 @@ public class FASController {
      */
     @RequestMapping(value = "/addpublish",method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView seePublish(
+    public ModelAndView addPublish(
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
             @RequestParam(value = "worktime", required = true) int worktime,
@@ -251,13 +257,29 @@ public class FASController {
 //            PythonInterpreter interpreter = new PythonInterpreter();
 //            interpreter.execfile("/Users/zhouhailin/PycharmProjects/pythonProject/bisai/GA.py ");
 //
-            modelAndView.setViewName("requirement/requirement_list");
+            modelAndView.setViewName("maintenance/maintenance_list");
         } else {
             System.out.println("faild");
         }
         return modelAndView;
     }
 
+    @RequestMapping(value = "/addmaintenance",method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView addMaintenance(
+            @RequestParam(value = "projectname", required = true) String projectname,
+            @RequestParam(value = "personname", required = true) String personname,
+            @RequestParam(value = "worktime", required = true) int worktime,
+            ModelAndView modelAndView){
+        int flag = maintenanceService.add(new Maintenance(projectname, personname, worktime));
+        if (flag > 0) {
+            System.out.println("success");
+            modelAndView.setViewName("design/design_list");
+        } else {
+            System.out.println("faild");
+        }
+        return modelAndView;
+    }
 
 
 

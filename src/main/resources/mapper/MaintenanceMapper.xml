@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vip.wulinzeng.dao.MaintenanceDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="findall" resultType="Maintenance">
+        select * from maintenance
+    </select>
+
+    <update id="add" parameterType="Maintenance" >
+        insert into maintenance(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
+    </update>
+
+</mapper>
