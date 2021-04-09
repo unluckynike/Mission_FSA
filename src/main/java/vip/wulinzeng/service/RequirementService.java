@@ -10,5 +10,5 @@ public interface RequirementService {
 
     public List<Requirement> findall();
     public int add(Requirement requirement);
-
+    public int delete(int id);
 }

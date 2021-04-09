@@ -12,4 +12,6 @@ public interface RequirementDao {
 
     public int add(Requirement requirement);
 
+    public int delete(int id);
+
 }

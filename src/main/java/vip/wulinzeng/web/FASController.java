@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 /*
@@ -281,7 +282,21 @@ public class FASController {
         return modelAndView;
     }
 
+    //query
+    @RequestMapping(value = "/queryrequirement",method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView queryRequirement(ModelAndView modelAndView){
+        modelAndView.addObject("requirenments",requirementService.findall());
+        modelAndView.setViewName("requirement/requirement_query");
+        return modelAndView;
+    }
 
+    //delete
+    @RequestMapping(value = "deleterequirement",method = RequestMethod.GET)
+    public String deleteRequirement(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView){
+        requirementService.delete(deleteid);
+        return "redirect:/fas/queryrequirement";
+    }
 
 
 }

@@ -28,6 +28,9 @@ public class RequirementServiceImpl implements RequirementService {
     }
 
     @Override
+    public int delete(int id) { return requirementDao.delete(id); }
+
+    @Override
     public List<Requirement> findall() {
         return requirementDao.findall();
     }

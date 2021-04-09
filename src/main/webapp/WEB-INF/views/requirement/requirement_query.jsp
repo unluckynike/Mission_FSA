@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: zhouhailin
@@ -28,6 +29,80 @@
     <jsp:include page="../system/header.jsp"></jsp:include>
     <!--End 头部信息-->
 
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-toolbar clearfix">
+                            <div class="toolbar-btn-action">
+                                <a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>
+                                <a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-check"></i> 启用</a>
+                                <a class="btn btn-warning m-r-5" href="#!"><i class="mdi mdi-block-helper"></i> 禁用</a>
+                                <a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>项目编号</th>
+                                        <th>人员编号</th>
+                                        <th>工时</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                            <c:forEach items="${requirenments}" var="requirenment" varStatus="vs">
+                                    <tbody>
+                                    <tr>
+                                        <td>${requirenment.id }</td>
+                                        <td>${requirenment.projectname }</td>
+                                        <td>${requirenment.personname }</td>
+                                        <td>${requirenment.worktime }</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a class="btn btn-xs btn-default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+<%--                                                <a class="btn btn-xs btn-default" href="#!" title="查看" data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>--%>
+                                                <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath }/fas/deleterequirement?id=${requirenment.id }" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                             </c:forEach>
+                                </table>
+                            </div>
+<%--                            <ul class="pagination">--%>
+<%--                                <li class="disabled"><span>«</span></li>--%>
+<%--                                <li class="active"><span>1</span></li>--%>
+<%--                                <li><a href="#1">2</a></li>--%>
+<%--                                <li><a href="#1">3</a></li>--%>
+<%--                                <li><a href="#1">4</a></li>--%>
+<%--                                <li><a href="#1">5</a></li>--%>
+<%--                                <li><a href="#1">6</a></li>--%>
+<%--                                <li><a href="#1">7</a></li>--%>
+<%--                                <li><a href="#1">8</a></li>--%>
+<%--                                <li class="disabled"><span>...</span></li>--%>
+<%--                                <li><a href="#!">14452</a></li>--%>
+<%--                                <li><a href="#!">14453</a></li>--%>
+<%--                                <li><a href="#!">»</a></li>--%>
+<%--                            </ul>--%>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+    <!--End 页面主要内容-->
 
 
 </div>
