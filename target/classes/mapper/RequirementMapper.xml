@@ -12,4 +12,8 @@
         insert into requirements(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
     </update>
 
+    <update id="delete" parameterType="int" >
+        delete from requirements where id=#{projectname}
+    </update>
+
 </mapper>

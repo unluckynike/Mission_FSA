@@ -31,7 +31,7 @@
 <main class="lyear-layout-content">
 
     <div class="container-fluid">
-        <div class="card-header"><h4>FSA 调度算法结果</h4></div>
+        <div class="card-header"><h4>调度算法结果</h4></div>
         <div class="card-body">
             <div class="m-t-10">
                 <span class="label label-primary-light">1:设计</span>

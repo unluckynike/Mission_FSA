@@ -46,11 +46,11 @@
                             </div>
                             <form method="post" action="${pageContext.request.contextPath }/fas/addrequirementa" class="site-form" accept-charset="UTF-8">
                                 <div class="form-group">
-                                    <label for="projectname">项目名</label>
+                                    <label for="projectname">项目编号</label>
                                     <input  class="form-control" name="projectname" id="projectname" placeholder="输入项目名">
                                 </div>
                                 <div class="form-group">
-                                    <label for="personname">人员姓名</label>
+                                    <label for="personname">人员编号</label>
                                     <input  class="form-control" name="personname" id="personname" placeholder="输入项目人员">
                                 </div>
                                 <div class="form-group">

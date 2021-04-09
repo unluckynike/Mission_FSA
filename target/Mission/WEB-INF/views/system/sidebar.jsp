@@ -19,38 +19,38 @@
                 <li class="nav-item"> <a href="${pageContext.request.contextPath }/system/gowelcome"><i class="mdi mdi-home"></i>后台首页</a> </li>
                 <li class="nav-item"> <a href="${pageContext.request.contextPath }/fas/gopeople"><i class="mdi mdi-account"></i>总人数</a> </li>
                 <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-creation"></i>设计</a>
+                    <a href="javascript:void(0)"><i class="mdi mdi-creation"></i>1.设计</a>
                     <ul class="nav nav-subnav">
                         <li> <a href="${pageContext.request.contextPath }/fas/godesign">录入设计</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>需求</a>
+                    <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>2.需求</a>
                     <ul class="nav nav-subnav">
                         <li> <a href="${pageContext.request.contextPath }/fas/gorequirement">录入需求</a> </li>
                         <li> <a href="${pageContext.request.contextPath }/fas/queryrequirement">查询需求</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-apple-keyboard-command"></i>编码</a>
+                    <a href="javascript:void(0)"><i class="mdi mdi-apple-keyboard-command"></i>3.编码</a>
                     <ul class="nav nav-subnav">
                         <li> <a href="${pageContext.request.contextPath }/fas/goencode">录入编码</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>测试</a>
+                    <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>4.测试</a>
                     <ul class="nav nav-subnav">
                         <li> <a href="${pageContext.request.contextPath }/fas/goexam">录入测试</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-ungroup"></i>发布</a>
+                    <a href="javascript:void(0)"><i class="mdi mdi-ungroup"></i>5.发布</a>
                     <ul class="nav nav-subnav">
                         <li> <a href="${pageContext.request.contextPath }/fas/gopublish">录入发布</a> </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-chart-timeline"></i>维护</a>
+                    <a href="javascript:void(0)"><i class="mdi mdi-chart-timeline"></i>6.维护</a>
                     <ul class="nav nav-subnav">
                         <li> <a href="${pageContext.request.contextPath }/fas/gomaintenance">录入维护</a> </li>
                     </ul>
