@@ -47,6 +47,7 @@ public class FASController {
 
     /**
      * 总人数
+     *
      * @param modelAndView
      * @return
      */
@@ -58,31 +59,33 @@ public class FASController {
     }
 
     /**
-     *  总人数
+     * 总人数
+     *
      * @param modelAndView
      * @param request
      * @param peoplecount
      * @return
      */
-    @RequestMapping(value = "/setpeople",method = RequestMethod.POST)
+    @RequestMapping(value = "/setpeople", method = RequestMethod.POST)
     public ModelAndView setPeopleTotal(ModelAndView modelAndView, HttpServletRequest request,
-                                       @RequestParam(value = "peoplecount", required = true) int peoplecount){
+                                       @RequestParam(value = "peoplecount", required = true) int peoplecount) {
         peopleService.add(new People(peoplecount));        //peoplecount come from input
-        request.getSession().setAttribute("peopelCount",peoplecount);
+        request.getSession().setAttribute("peopelCount", peoplecount);
         modelAndView.setViewName("design/design_list");
         return modelAndView;
     }
 
     /**
      * 栅栏下内容
+     *
      * @param modelAndView
      * @return
      */
 
-    @RequestMapping(value = "/godesign",method = RequestMethod.GET)
-    public ModelAndView seeDesign(ModelAndView modelAndView){
+    @RequestMapping(value = "/godesign", method = RequestMethod.GET)
+    public ModelAndView seeDesign(ModelAndView modelAndView) {
         System.out.println("godesigin mappting get in");
-        modelAndView.addObject("designs",designService.findall());
+        modelAndView.addObject("designs", designService.findall());
         modelAndView.setViewName("design/design_list");
         return modelAndView;
     }
@@ -90,7 +93,7 @@ public class FASController {
     @RequestMapping(value = "/gorequirement", method = RequestMethod.GET)
     public ModelAndView seeRequirement(ModelAndView modelAndView) {
         System.out.println("mapping getin  ");
-        modelAndView.addObject("requirenments",requirementService.findall());
+        modelAndView.addObject("requirenments", requirementService.findall());
         modelAndView.setViewName("requirement/requirement_list");
         return modelAndView;
     }
@@ -116,14 +119,15 @@ public class FASController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/gomaintenance",method = RequestMethod.GET)
-    public ModelAndView seeMaintenance(ModelAndView modelAndView){
+    @RequestMapping(value = "/gomaintenance", method = RequestMethod.GET)
+    public ModelAndView seeMaintenance(ModelAndView modelAndView) {
         modelAndView.setViewName("maintenance/maintenance_list");
         return modelAndView;
     }
 
     /**
-     *  fsa
+     * fsa
+     *
      * @param modelAndView
      * @return
      */
@@ -139,18 +143,27 @@ public class FASController {
     }
 
 
-    //put in
-    @RequestMapping(value = "/adddesign",method = RequestMethod.POST)
+    //add
+
+    /**
+     * 设计添加
+     * @param projectname
+     * @param personname
+     * @param worktime
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/adddesign", method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView addDesign( @RequestParam(value = "projectname", required = true) String projectname,
-                                   @RequestParam(value = "personname", required = true) String personname,
-                                   @RequestParam(value = "worktime", required = true) int worktime,
-                                   ModelAndView modelAndView){
-        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime+"   ");
+    public ModelAndView addDesign(@RequestParam(value = "projectname", required = true) String projectname,
+                                  @RequestParam(value = "personname", required = true) String personname,
+                                  @RequestParam(value = "worktime", required = true) int worktime,
+                                  ModelAndView modelAndView) {
+        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime + "   ");
         int flag = designService.add(new Design(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
-            modelAndView.addObject("requirenments",requirementService.findall());
+            modelAndView.addObject("requirenments", requirementService.findall());
             modelAndView.setViewName("requirement/requirement_list");//后续到需求
         } else {
             System.out.println("faild");
@@ -171,7 +184,7 @@ public class FASController {
             @RequestParam(value = "personname", required = true) String personname,
             @RequestParam(value = "worktime", required = true) int worktime,
             ModelAndView modelAndView) {
-        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime+"   ");
+        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime + "   ");
         int flag = requirementService.add(new Requirement(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
@@ -241,25 +254,23 @@ public class FASController {
 
 
     /**
+     * 发布添加
      * @param projectname
      * @param personname
      * @param worktime
      * @param modelAndView
      * @return
      */
-    @RequestMapping(value = "/addpublish",method = RequestMethod.POST)
+    @RequestMapping(value = "/addpublish", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView addPublish(
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
             @RequestParam(value = "worktime", required = true) int worktime,
-            ModelAndView modelAndView){
+            ModelAndView modelAndView) {
         int flag = publishService.add(new Publish(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
-//            PythonInterpreter interpreter = new PythonInterpreter();
-//            interpreter.execfile("/Users/zhouhailin/PycharmProjects/pythonProject/bisai/GA.py ");
-//
             modelAndView.setViewName("maintenance/maintenance_list");
         } else {
             System.out.println("faild");
@@ -267,13 +278,13 @@ public class FASController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/addmaintenance",method = RequestMethod.POST)
+    @RequestMapping(value = "/addmaintenance", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView addMaintenance(
             @RequestParam(value = "projectname", required = true) String projectname,
             @RequestParam(value = "personname", required = true) String personname,
             @RequestParam(value = "worktime", required = true) int worktime,
-            ModelAndView modelAndView){
+            ModelAndView modelAndView) {
         int flag = maintenanceService.add(new Maintenance(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
@@ -285,85 +296,112 @@ public class FASController {
     }
 
     //query
+
     /**
      * 设计查询
+     *
      * @param modelAndView
      * @return
      */
-    @RequestMapping(value = "/querydesign",method = RequestMethod.GET)
+    @RequestMapping(value = "/querydesign", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView queryDesign(ModelAndView modelAndView){
-        System.out.println("findall desigin:"+designService.findall());
-        modelAndView.addObject("designs",designService.findall());
+    public ModelAndView queryDesign(ModelAndView modelAndView) {
+        System.out.println("findall desigin:" + designService.findall());
+        modelAndView.addObject("designs", designService.findall());
         modelAndView.setViewName("design/design_query");
         return modelAndView;
     }
 
     /**
      * 需求查询
+     *
      * @param modelAndView
      * @return
      */
-    @RequestMapping(value = "/queryrequirement",method = RequestMethod.GET)
+    @RequestMapping(value = "/queryrequirement", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView queryRequirement(ModelAndView modelAndView){
-        modelAndView.addObject("requirenments",requirementService.findall());
+    public ModelAndView queryRequirement(ModelAndView modelAndView) {
+        modelAndView.addObject("requirenments", requirementService.findall());
         modelAndView.setViewName("requirement/requirement_query");
         return modelAndView;
     }
 
 
     //delete
-    @RequestMapping(value = "/deleterequirement",method = RequestMethod.GET)
-    public String deleteRequirement(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView){
-        requirementService.delete(deleteid);
-        return "redirect:/fas/queryrequirement";
-    }
 
-    @RequestMapping(value = "/deletedesign",method = RequestMethod.GET)
-    public String deleteDesign(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView){
+    /**
+     * 设计删除
+     *
+     * @param deleteid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/deletedesign", method = RequestMethod.GET)
+    public String deleteDesign(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
         designService.delete(deleteid);
         return "redirect:/fas/querydesign";
     }
 
-    //edit
-    @RequestMapping(value = "/editrequirement",method = RequestMethod.GET)
-    public ModelAndView goEditRequirement(@RequestParam(value = "id")int editid,ModelAndView modelAndView){
-        modelAndView.addObject("requirementInfor",requirementService.findOne(editid));
-        modelAndView.setViewName("requirement/requirement_edit");
-        return modelAndView;
-    }
-    @RequestMapping(value = "/doeditrequirement",method = RequestMethod.POST)
-    public String doEditeRequirement(@RequestParam(value = "id")int id,
-                                     @RequestParam(value = "projectname", required = true) String projectname,
-                                     @RequestParam(value = "personname", required = true) String personname,
-                                     @RequestParam(value = "worktime", required = true) int worktime){
-        requirementService.edit(new Requirement(id,projectname,personname,worktime));
+    /**
+     * 需求删除
+     *
+     * @param deleteid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/deleterequirement", method = RequestMethod.GET)
+    public String deleteRequirement(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
+        requirementService.delete(deleteid);
         return "redirect:/fas/queryrequirement";
     }
 
+    //edit
+
     /**
      * 设计修改
+     *
      * @param editid
      * @param modelAndView
      * @return
      */
-    @RequestMapping(value = "/editdesign",method = RequestMethod.GET)
-    public ModelAndView goEditeDesign(@RequestParam(value = "id")int editid,ModelAndView modelAndView){
-        modelAndView.addObject("designInfor",designService.findOne(editid));
+    @RequestMapping(value = "/editdesign", method = RequestMethod.GET)
+    public ModelAndView goEditeDesign(@RequestParam(value = "id") int editid, ModelAndView modelAndView) {
+        modelAndView.addObject("designInfor", designService.findOne(editid));
         modelAndView.setViewName("design/design_edit");
         return modelAndView;
     }
-    @RequestMapping(value = "/doeditedesign",method = RequestMethod.POST)
-    public String doEditeDesign(@RequestParam(value = "id")int id,
-                                     @RequestParam(value = "projectname", required = true) String projectname,
-                                     @RequestParam(value = "personname", required = true) String personname,
-                                     @RequestParam(value = "worktime", required = true) int worktime){
-        designService.edit(new Design(id,projectname,personname,worktime));
+
+    @RequestMapping(value = "/doeditedesign", method = RequestMethod.POST)
+    public String doEditeDesign(@RequestParam(value = "id") int id,
+                                @RequestParam(value = "projectname", required = true) String projectname,
+                                @RequestParam(value = "personname", required = true) String personname,
+                                @RequestParam(value = "worktime", required = true) int worktime) {
+        designService.edit(new Design(id, projectname, personname, worktime));
         return "redirect:/fas/querydesign";
     }
 
+    /**
+     * 需求修改
+     *
+     * @param editid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/editrequirement", method = RequestMethod.GET)
+    public ModelAndView goEditRequirement(@RequestParam(value = "id") int editid, ModelAndView modelAndView) {
+        modelAndView.addObject("requirementInfor", requirementService.findOne(editid));
+        modelAndView.setViewName("requirement/requirement_edit");
+        return modelAndView;
+    }
 
+    @RequestMapping(value = "/doeditrequirement", method = RequestMethod.POST)
+    public String doEditeRequirement(@RequestParam(value = "id") int id,
+                                     @RequestParam(value = "projectname", required = true) String projectname,
+                                     @RequestParam(value = "personname", required = true) String personname,
+                                     @RequestParam(value = "worktime", required = true) int worktime) {
+        requirementService.edit(new Requirement(id, projectname, personname, worktime));
+        return "redirect:/fas/queryrequirement";
+    }
 
 
 }
