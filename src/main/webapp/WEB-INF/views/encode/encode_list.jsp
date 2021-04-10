@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: zhouhailin
@@ -71,10 +72,42 @@
                 </div>
             </div>
 
+            <div class="col-sm-6 col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <button class="btn btn-primary">编码列表</button>
+                        <ul class="card-actions">
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>项目编号</th>
+                                    <th>人员编号</th>
+                                    <th>工时</th>
+                                </tr>
+                                </thead>
+                                <c:forEach items="${encodes}" var="encode" varStatus="vs">
+                                    <tbody>
+                                    <tr>
+                                        <td>${encode.projectname }</td>
+                                        <td>${encode.personname }</td>
+                                        <td>${encode.worktime }</td>
+                                    </tr>
+                                    </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-
     </div>
-
 </main>
 <!--End 页面主要内容-->
 

@@ -70,8 +70,9 @@ public class FASController {
     public ModelAndView setPeopleTotal(ModelAndView modelAndView, HttpServletRequest request,
                                        @RequestParam(value = "peoplecount", required = true) int peoplecount) {
         peopleService.add(new People(peoplecount));        //peoplecount come from input
+        modelAndView.addObject("requirenments", requirementService.findall());
         request.getSession().setAttribute("peopelCount", peoplecount);
-        modelAndView.setViewName("design/design_list");
+        modelAndView.setViewName("requirement/requirement_list");
         return modelAndView;
     }
 
@@ -82,39 +83,36 @@ public class FASController {
      * @return
      */
 
-    @RequestMapping(value = "/godesign", method = RequestMethod.GET)
-    public ModelAndView seeDesign(ModelAndView modelAndView) {
-        System.out.println("godesigin mappting get in");
-        modelAndView.addObject("designs", designService.findall());
-        modelAndView.setViewName("design/design_list");
-        return modelAndView;
-    }
-
     @RequestMapping(value = "/gorequirement", method = RequestMethod.GET)
     public ModelAndView seeRequirement(ModelAndView modelAndView) {
-        System.out.println("mapping getin  ");
         modelAndView.addObject("requirenments", requirementService.findall());
         modelAndView.setViewName("requirement/requirement_list");
         return modelAndView;
     }
 
+    @RequestMapping(value = "/godesign", method = RequestMethod.GET)
+    public ModelAndView seeDesign(ModelAndView modelAndView) {
+        modelAndView.addObject("designs", designService.findall());
+        modelAndView.setViewName("design/design_list");
+        return modelAndView;
+    }
+
+
     @RequestMapping(value = "/goencode", method = RequestMethod.GET)
     public ModelAndView seeEncode(ModelAndView modelAndView) {
-        System.out.println("goencode mapping getin  ");
+        modelAndView.addObject("encodes",encodeService.findall());
         modelAndView.setViewName("encode/encode_list");
         return modelAndView;
     }
 
     @RequestMapping(value = "/goexam", method = RequestMethod.GET)
     public ModelAndView seeExam(ModelAndView modelAndView) {
-        System.out.println("goexam mapping getin  ");
         modelAndView.setViewName("exam/exam_list");
         return modelAndView;
     }
 
     @RequestMapping(value = "/gopublish", method = RequestMethod.GET)
     public ModelAndView seeProdect(ModelAndView modelAndView) {
-        System.out.println("publish mapping getin  ");
         modelAndView.setViewName("publish/publish_list");
         return modelAndView;
     }
@@ -146,7 +144,37 @@ public class FASController {
     //add
 
     /**
+     * @param projectname
+     * @param personname
+     * @param worktime
+     * @param modelAndView
+     */
+    @RequestMapping(value = "/addrequirementa", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView addRequrement(
+            @RequestParam(value = "projectname", required = true) String projectname,
+            @RequestParam(value = "personname", required = true) String personname,
+            @RequestParam(value = "worktime", required = true) int worktime,
+            ModelAndView modelAndView) {
+        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime + "   ");
+        int flag = requirementService.add(new Requirement(projectname, personname, worktime));
+        if (flag > 0) {
+            System.out.println("success");
+            modelAndView.addObject("designs", designService.findall());
+            modelAndView.setViewName("design/design_list");//后续到编码
+        } else {
+            System.out.println("faild");
+        }
+        return modelAndView;
+        /*
+        请求错误处理……
+
+         */
+    }
+
+    /**
      * 设计添加
+     *
      * @param projectname
      * @param personname
      * @param worktime
@@ -164,39 +192,11 @@ public class FASController {
         if (flag > 0) {
             System.out.println("success");
             modelAndView.addObject("requirenments", requirementService.findall());
-            modelAndView.setViewName("requirement/requirement_list");//后续到需求
+            modelAndView.setViewName("encode/encode_list");//后续到需求
         } else {
             System.out.println("faild");
         }
         return modelAndView;
-    }
-
-    /**
-     * @param projectname
-     * @param personname
-     * @param worktime
-     * @param modelAndView
-     */
-    @RequestMapping(value = "/addrequirementa", method = RequestMethod.POST)
-    @ResponseBody
-    public ModelAndView addRequrement(
-            @RequestParam(value = "projectname", required = true) String projectname,
-            @RequestParam(value = "personname", required = true) String personname,
-            @RequestParam(value = "worktime", required = true) int worktime,
-            ModelAndView modelAndView) {
-        System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime + "   ");
-        int flag = requirementService.add(new Requirement(projectname, personname, worktime));
-        if (flag > 0) {
-            System.out.println("success");
-            modelAndView.setViewName("encode/encode_list");//后续到编码
-        } else {
-            System.out.println("faild");
-        }
-        return modelAndView;
-        /*
-        请求错误处理……
-
-         */
     }
 
     /**
@@ -217,6 +217,7 @@ public class FASController {
         int flag = encodeService.add(new Encode(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
+            modelAndView.addObject("encodes", encodeService.findall());
             modelAndView.setViewName("exam/exam_list");//后续到测试
         } else {
             System.out.println("faild");
@@ -255,6 +256,7 @@ public class FASController {
 
     /**
      * 发布添加
+     *
      * @param projectname
      * @param personname
      * @param worktime
@@ -288,7 +290,7 @@ public class FASController {
         int flag = maintenanceService.add(new Maintenance(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
-            modelAndView.setViewName("design/design_list");
+            modelAndView.setViewName("requirement/requirement_list");
         } else {
             System.out.println("faild");
         }
@@ -326,6 +328,18 @@ public class FASController {
         return modelAndView;
     }
 
+    /**
+     * 编码查询
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/queryencode", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView queryEncode(ModelAndView modelAndView) {
+        modelAndView.addObject("encodes", encodeService.findall());
+        modelAndView.setViewName("encode/encode_query");
+        return modelAndView;
+    }
 
     //delete
 
@@ -353,6 +367,18 @@ public class FASController {
     public String deleteRequirement(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
         requirementService.delete(deleteid);
         return "redirect:/fas/queryrequirement";
+    }
+
+    /**
+     * 编码删除
+     * @param deleteid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/deleteencode", method = RequestMethod.GET)
+    public String deleteEncode(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
+        encodeService.delete(deleteid);
+        return "redirect:/fas/queryencode";
     }
 
     //edit
@@ -395,13 +421,36 @@ public class FASController {
     }
 
     @RequestMapping(value = "/doeditrequirement", method = RequestMethod.POST)
-    public String doEditeRequirement(@RequestParam(value = "id") int id,
+    public String doEditRequirement(@RequestParam(value = "id") int id,
                                      @RequestParam(value = "projectname", required = true) String projectname,
                                      @RequestParam(value = "personname", required = true) String personname,
                                      @RequestParam(value = "worktime", required = true) int worktime) {
         requirementService.edit(new Requirement(id, projectname, personname, worktime));
         return "redirect:/fas/queryrequirement";
     }
+
+    /**
+     * 编码修改
+     * @param editid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/editencode", method = RequestMethod.GET)
+    public ModelAndView goEditDesign(@RequestParam(value = "id") int editid, ModelAndView modelAndView) {
+        modelAndView.addObject("encodeInfor", encodeService.findOne(editid));
+        modelAndView.setViewName("encode/encode_edit");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/doeditencode", method = RequestMethod.POST)
+    public String doEditDesign(@RequestParam(value = "id") int id,
+                                     @RequestParam(value = "projectname", required = true) String projectname,
+                                     @RequestParam(value = "personname", required = true) String personname,
+                                     @RequestParam(value = "worktime", required = true) int worktime) {
+        encodeService.edit(new Encode(id, projectname, personname, worktime));
+        return "redirect:/fas/queryencode";
+    }
+
 
 
 }

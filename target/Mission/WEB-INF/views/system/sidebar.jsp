@@ -22,23 +22,24 @@
                 <li class="nav-item"><a href="${pageContext.request.contextPath }/fas/gopeople"><i
                         class="mdi mdi-account"></i>总人数</a></li>
                 <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-creation"></i>1.设计</a>
-                    <ul class="nav nav-subnav">
-                        <li><a href="${pageContext.request.contextPath }/fas/godesign">录入设计</a></li>
-                        <li><a href="${pageContext.request.contextPath }/fas/querydesign">查询设计</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item nav-item-has-subnav">
-                    <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>2.需求</a>
+                    <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>1.需求</a>
                     <ul class="nav nav-subnav">
                         <li><a href="${pageContext.request.contextPath }/fas/gorequirement">录入需求</a></li>
                         <li><a href="${pageContext.request.contextPath }/fas/queryrequirement">查询需求</a></li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
+                    <a href="javascript:void(0)"><i class="mdi mdi-creation"></i>2.设计</a>
+                    <ul class="nav nav-subnav">
+                        <li><a href="${pageContext.request.contextPath }/fas/godesign">录入设计</a></li>
+                        <li><a href="${pageContext.request.contextPath }/fas/querydesign">查询设计</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-has-subnav">
                     <a href="javascript:void(0)"><i class="mdi mdi-apple-keyboard-command"></i>3.编码</a>
                     <ul class="nav nav-subnav">
                         <li><a href="${pageContext.request.contextPath }/fas/goencode">录入编码</a></li>
+                        <li><a href="${pageContext.request.contextPath }/fas/queryencode">查询编码</a></li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">

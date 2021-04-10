@@ -1,6 +1,5 @@
 package vip.wulinzeng.dao;
 
-
 import vip.wulinzeng.pojo.Encode;
 
 import java.util.List;
@@ -12,4 +11,9 @@ public interface EncodeDao {
 
     public int add(Encode encode);
 
+    public List<Encode> findOne(int id);
+
+    public int delete(int id);
+
+    public int edit(Encode encode);
 }

@@ -22,6 +22,21 @@ public class EncodeServiceImpl implements EncodeService {
     private EncodeDao encodeDao;
 
     @Override
+    public List<Encode> findOne(int id) {
+        return encodeDao.findOne(id);
+    }
+
+    @Override
+    public int delete(int id) {
+        return encodeDao.delete(id);
+    }
+
+    @Override
+    public int edit(Encode encode) {
+        return encodeDao.edit(encode);
+    }
+
+    @Override
     public List<Encode> findall() {
         return encodeDao.findall();
     }
