@@ -107,6 +107,7 @@ public class FASController {
 
     @RequestMapping(value = "/goexam", method = RequestMethod.GET)
     public ModelAndView seeExam(ModelAndView modelAndView) {
+        modelAndView.addObject("exams",examinationService.findall());
         modelAndView.setViewName("exam/exam_list");
         return modelAndView;
     }
@@ -341,6 +342,19 @@ public class FASController {
         return modelAndView;
     }
 
+    /**
+     * 测试查询
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/queryexam", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView queryExam(ModelAndView modelAndView) {
+        modelAndView.addObject("exams", examinationService.findall());
+        modelAndView.setViewName("exam/exam_query");
+        return modelAndView;
+    }
+
     //delete
 
     /**
@@ -379,6 +393,18 @@ public class FASController {
     public String deleteEncode(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
         encodeService.delete(deleteid);
         return "redirect:/fas/queryencode";
+    }
+
+    /**
+     * 测试删除
+     * @param deleteid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/deleteexam", method = RequestMethod.GET)
+    public String deleteExam(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
+        examinationService.delete(deleteid);
+        return "redirect:/fas/queryexam";
     }
 
     //edit
@@ -449,6 +475,29 @@ public class FASController {
                                      @RequestParam(value = "worktime", required = true) int worktime) {
         encodeService.edit(new Encode(id, projectname, personname, worktime));
         return "redirect:/fas/queryencode";
+    }
+
+
+    /**
+     * 测试修改
+     * @param editid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/editexam", method = RequestMethod.GET)
+    public ModelAndView goEditExam(@RequestParam(value = "id") int editid, ModelAndView modelAndView) {
+        modelAndView.addObject("examInfor", examinationService.findOne(editid));
+        modelAndView.setViewName("exam/exam_edit");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/doeditexam", method = RequestMethod.POST)
+    public String doEditExam(@RequestParam(value = "id") int id,
+                               @RequestParam(value = "projectname", required = true) String projectname,
+                               @RequestParam(value = "personname", required = true) String personname,
+                               @RequestParam(value = "worktime", required = true) int worktime) {
+        examinationService.edit(new Examination(id, projectname, personname, worktime));
+        return "redirect:/fas/queryexam";
     }
 
 

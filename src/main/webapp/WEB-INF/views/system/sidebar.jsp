@@ -46,6 +46,7 @@
                     <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>4.测试</a>
                     <ul class="nav nav-subnav">
                         <li><a href="${pageContext.request.contextPath }/fas/goexam">录入测试</a></li>
+                        <li><a href="${pageContext.request.contextPath }/fas/queryexam">查询测试</a></li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">

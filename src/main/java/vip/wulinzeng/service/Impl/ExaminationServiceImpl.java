@@ -30,4 +30,19 @@ public class ExaminationServiceImpl implements ExaminationService {
     public int add(Examination examination) {
         return examinationDao.add(examination);
     }
+
+    @Override
+    public List<Examination> findOne(int id) {
+        return examinationDao.findOne(id);
+    }
+
+    @Override
+    public int delete(int id) {
+        return examinationDao.delete(id);
+    }
+
+    @Override
+    public int edit(Examination examination) {
+        return examinationDao.edit(examination);
+    }
 }

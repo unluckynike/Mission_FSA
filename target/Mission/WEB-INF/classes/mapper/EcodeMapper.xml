@@ -8,8 +8,20 @@
         select * from encoding
     </select>
 
+    <select id="findOne" parameterType="int" resultType="Encode">
+        SELECT * FROM encoding WHERE id=#{id}
+    </select>
+
     <update id="add" parameterType="Encode" >
         insert into encoding(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
+    </update>
+
+    <update id="edit" parameterType="Encode" >
+        UPDATE encoding SET projectname=#{projectname}, personname=#{personname}, worktime=#{worktime} WHERE id=#{id}
+    </update>
+
+    <update id="delete" parameterType="int" >
+        delete from encoding where id=#{id}
     </update>
 
 </mapper>

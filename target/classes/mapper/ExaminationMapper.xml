@@ -8,8 +8,20 @@
         select * from examination
     </select>
 
+    <select id="findOne" parameterType="int" resultType="Examination">
+        SELECT * FROM examination WHERE id=#{id}
+    </select>
+
     <update id="add" parameterType="Examination" >
         insert into examination(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
+    </update>
+
+    <update id="edit" parameterType="Examination" >
+        UPDATE examination SET projectname=#{projectname}, personname=#{personname}, worktime=#{worktime} WHERE id=#{id}
+    </update>
+
+    <update id="delete" parameterType="int" >
+        delete from examination where id=#{id}
     </update>
 
 </mapper>
