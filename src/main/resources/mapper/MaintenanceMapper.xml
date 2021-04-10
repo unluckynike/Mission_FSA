@@ -8,8 +8,20 @@
         select * from maintenance
     </select>
 
+    <select id="findOne" parameterType="int" resultType="Maintenance">
+        SELECT * FROM maintenance WHERE id=#{id}
+    </select>
+
     <update id="add" parameterType="Maintenance" >
         insert into maintenance(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
+    </update>
+
+    <update id="edit" parameterType="Maintenance" >
+        UPDATE maintenance SET projectname=#{projectname}, personname=#{personname}, worktime=#{worktime} WHERE id=#{id}
+    </update>
+
+    <update id="delete" parameterType="int" >
+        delete from maintenance where id=#{id}
     </update>
 
 </mapper>

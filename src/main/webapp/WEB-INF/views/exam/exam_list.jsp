@@ -74,8 +74,8 @@
 
             <div class="col-sm-6 col-lg-3">
                 <div class="card">
-                    <div class="card-header bg-primary">
-                        <button class="btn btn-primary">测试列表</button>
+                    <div class="card-header bg-info">
+                        <button class="btn btn-info">测试列表</button>
                         <ul class="card-actions">
                         </ul>
                     </div>
@@ -100,7 +100,6 @@
                                 </c:forEach>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>

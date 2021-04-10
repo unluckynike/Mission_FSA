@@ -100,26 +100,28 @@ public class FASController {
 
     @RequestMapping(value = "/goencode", method = RequestMethod.GET)
     public ModelAndView seeEncode(ModelAndView modelAndView) {
-        modelAndView.addObject("encodes",encodeService.findall());
+        modelAndView.addObject("encodes", encodeService.findall());
         modelAndView.setViewName("encode/encode_list");
         return modelAndView;
     }
 
     @RequestMapping(value = "/goexam", method = RequestMethod.GET)
     public ModelAndView seeExam(ModelAndView modelAndView) {
-        modelAndView.addObject("exams",examinationService.findall());
+        modelAndView.addObject("exams", examinationService.findall());
         modelAndView.setViewName("exam/exam_list");
         return modelAndView;
     }
 
     @RequestMapping(value = "/gopublish", method = RequestMethod.GET)
     public ModelAndView seeProdect(ModelAndView modelAndView) {
+        modelAndView.addObject("publishs", publishService.findall());
         modelAndView.setViewName("publish/publish_list");
         return modelAndView;
     }
 
     @RequestMapping(value = "/gomaintenance", method = RequestMethod.GET)
     public ModelAndView seeMaintenance(ModelAndView modelAndView) {
+        modelAndView.addObject("maintenances", maintenanceService.findall());
         modelAndView.setViewName("maintenance/maintenance_list");
         return modelAndView;
     }
@@ -134,10 +136,9 @@ public class FASController {
     public ModelAndView seeFSAResult(ModelAndView modelAndView) {
         System.out.println("fsaresult mapping getin  ");
         modelAndView.setViewName("result/fsaresult_list");
-        /**
-         * fsa调度   出结果
-         */
-
+        /*********************
+         *** fsa调度   出结果***
+         *********************/
         return modelAndView;
     }
 
@@ -145,6 +146,8 @@ public class FASController {
     //add
 
     /**
+     * 需求添加
+     *
      * @param projectname
      * @param personname
      * @param worktime
@@ -160,9 +163,8 @@ public class FASController {
         System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime + "   ");
         int flag = requirementService.add(new Requirement(projectname, personname, worktime));
         if (flag > 0) {
-            System.out.println("success");
             modelAndView.addObject("designs", designService.findall());
-            modelAndView.setViewName("design/design_list");//后续到编码
+            modelAndView.setViewName("design/design_list");//后续到设计
         } else {
             System.out.println("faild");
         }
@@ -191,9 +193,8 @@ public class FASController {
         System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime + "   ");
         int flag = designService.add(new Design(projectname, personname, worktime));
         if (flag > 0) {
-            System.out.println("success");
-            modelAndView.addObject("requirenments", requirementService.findall());
-            modelAndView.setViewName("encode/encode_list");//后续到需求
+            modelAndView.addObject("encodes", encodeService.findall());
+            modelAndView.setViewName("encode/encode_list");//后续到编码
         } else {
             System.out.println("faild");
         }
@@ -201,6 +202,8 @@ public class FASController {
     }
 
     /**
+     * 编码添加
+     *
      * @param projectname
      * @param personname
      * @param worktime
@@ -217,8 +220,7 @@ public class FASController {
         System.out.println("messg:" + personname + "    " + projectname + "   " + "     " + worktime);
         int flag = encodeService.add(new Encode(projectname, personname, worktime));
         if (flag > 0) {
-            System.out.println("success");
-            modelAndView.addObject("encodes", encodeService.findall());
+            modelAndView.addObject("exams", examinationService.findall());
             modelAndView.setViewName("exam/exam_list");//后续到测试
         } else {
             System.out.println("faild");
@@ -231,6 +233,8 @@ public class FASController {
     }
 
     /**
+     * 测试添加
+     *
      * @param projectname
      * @param personname
      * @param worktime
@@ -246,7 +250,7 @@ public class FASController {
             ModelAndView modelAndView) {
         int flag = examinationService.add(new Examination(projectname, personname, worktime));
         if (flag > 0) {
-            System.out.println("success");
+            modelAndView.addObject("publishs", publishService.findall());
             modelAndView.setViewName("publish/publish_list");
         } else {
             System.out.println("faild");
@@ -274,6 +278,7 @@ public class FASController {
         int flag = publishService.add(new Publish(projectname, personname, worktime));
         if (flag > 0) {
             System.out.println("success");
+            modelAndView.addObject("maintenances", maintenanceService.findall());
             modelAndView.setViewName("maintenance/maintenance_list");
         } else {
             System.out.println("faild");
@@ -281,6 +286,15 @@ public class FASController {
         return modelAndView;
     }
 
+    /**
+     * 维护添加
+     *
+     * @param projectname
+     * @param personname
+     * @param worktime
+     * @param modelAndView
+     * @return
+     */
     @RequestMapping(value = "/addmaintenance", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView addMaintenance(
@@ -290,7 +304,7 @@ public class FASController {
             ModelAndView modelAndView) {
         int flag = maintenanceService.add(new Maintenance(projectname, personname, worktime));
         if (flag > 0) {
-            System.out.println("success");
+            modelAndView.addObject("requirenments", requirementService.findall());
             modelAndView.setViewName("requirement/requirement_list");
         } else {
             System.out.println("faild");
@@ -299,21 +313,6 @@ public class FASController {
     }
 
     //query
-
-    /**
-     * 设计查询
-     *
-     * @param modelAndView
-     * @return
-     */
-    @RequestMapping(value = "/querydesign", method = RequestMethod.GET)
-    @ResponseBody
-    public ModelAndView queryDesign(ModelAndView modelAndView) {
-        System.out.println("findall desigin:" + designService.findall());
-        modelAndView.addObject("designs", designService.findall());
-        modelAndView.setViewName("design/design_query");
-        return modelAndView;
-    }
 
     /**
      * 需求查询
@@ -330,7 +329,24 @@ public class FASController {
     }
 
     /**
+     * 设计查询
+     *
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/querydesign", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView queryDesign(ModelAndView modelAndView) {
+        System.out.println("findall desigin:" + designService.findall());
+        modelAndView.addObject("designs", designService.findall());
+        modelAndView.setViewName("design/design_query");
+        return modelAndView;
+    }
+
+
+    /**
      * 编码查询
+     *
      * @param modelAndView
      * @return
      */
@@ -344,6 +360,7 @@ public class FASController {
 
     /**
      * 测试查询
+     *
      * @param modelAndView
      * @return
      */
@@ -355,20 +372,36 @@ public class FASController {
         return modelAndView;
     }
 
-    //delete
-
     /**
-     * 设计删除
+     * 发布查询
      *
-     * @param deleteid
      * @param modelAndView
      * @return
      */
-    @RequestMapping(value = "/deletedesign", method = RequestMethod.GET)
-    public String deleteDesign(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
-        designService.delete(deleteid);
-        return "redirect:/fas/querydesign";
+    @RequestMapping(value = "/querypublish", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView queryPuhlish(ModelAndView modelAndView) {
+        modelAndView.addObject("publishs", publishService.findall());
+        modelAndView.setViewName("publish/publish_query");
+        return modelAndView;
     }
+
+    /**
+     * 维护查询
+     *
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/querymaintenance", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView queryMaintenance(ModelAndView modelAndView) {
+        modelAndView.addObject("maintenances", maintenanceService.findall());
+        System.out.println("maintenances findall: " + maintenanceService.findall());
+        modelAndView.setViewName("maintenance/maintenance_query");
+        return modelAndView;
+    }
+
+    //delete
 
     /**
      * 需求删除
@@ -384,7 +417,21 @@ public class FASController {
     }
 
     /**
+     * 设计删除
+     *
+     * @param deleteid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/deletedesign", method = RequestMethod.GET)
+    public String deleteDesign(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
+        designService.delete(deleteid);
+        return "redirect:/fas/querydesign";
+    }
+
+    /**
      * 编码删除
+     *
      * @param deleteid
      * @param modelAndView
      * @return
@@ -397,6 +444,7 @@ public class FASController {
 
     /**
      * 测试删除
+     *
      * @param deleteid
      * @param modelAndView
      * @return
@@ -407,7 +455,56 @@ public class FASController {
         return "redirect:/fas/queryexam";
     }
 
+    /**
+     * 发布删除
+     *
+     * @param deleteid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/deletepublish", method = RequestMethod.GET)
+    public String deletePublish(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
+        publishService.delete(deleteid);
+        return "redirect:/fas/querypublish";
+    }
+
+    /**
+     * 维护删除
+     *
+     * @param deleteid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/deletemaintenance", method = RequestMethod.GET)
+    public String deleteMaintenance(@RequestParam(value = "id") int deleteid, ModelAndView modelAndView) {
+        maintenanceService.delete(deleteid);
+        return "redirect:/fas/querymaintenance";
+    }
+
     //edit
+
+    /**
+     * 需求修改
+     *
+     * @param editid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/editrequirement", method = RequestMethod.GET)
+    public ModelAndView goEditRequirement(@RequestParam(value = "id") int editid, ModelAndView modelAndView) {
+        modelAndView.addObject("requirementInfor", requirementService.findOne(editid));
+        modelAndView.setViewName("requirement/requirement_edit");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/doeditrequirement", method = RequestMethod.POST)
+    public String doEditRequirement(@RequestParam(value = "id") int id,
+                                    @RequestParam(value = "projectname", required = true) String projectname,
+                                    @RequestParam(value = "personname", required = true) String personname,
+                                    @RequestParam(value = "worktime", required = true) int worktime) {
+        requirementService.edit(new Requirement(id, projectname, personname, worktime));
+        return "redirect:/fas/queryrequirement";
+    }
 
     /**
      * 设计修改
@@ -433,30 +530,8 @@ public class FASController {
     }
 
     /**
-     * 需求修改
-     *
-     * @param editid
-     * @param modelAndView
-     * @return
-     */
-    @RequestMapping(value = "/editrequirement", method = RequestMethod.GET)
-    public ModelAndView goEditRequirement(@RequestParam(value = "id") int editid, ModelAndView modelAndView) {
-        modelAndView.addObject("requirementInfor", requirementService.findOne(editid));
-        modelAndView.setViewName("requirement/requirement_edit");
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/doeditrequirement", method = RequestMethod.POST)
-    public String doEditRequirement(@RequestParam(value = "id") int id,
-                                     @RequestParam(value = "projectname", required = true) String projectname,
-                                     @RequestParam(value = "personname", required = true) String personname,
-                                     @RequestParam(value = "worktime", required = true) int worktime) {
-        requirementService.edit(new Requirement(id, projectname, personname, worktime));
-        return "redirect:/fas/queryrequirement";
-    }
-
-    /**
      * 编码修改
+     *
      * @param editid
      * @param modelAndView
      * @return
@@ -470,9 +545,9 @@ public class FASController {
 
     @RequestMapping(value = "/doeditencode", method = RequestMethod.POST)
     public String doEditDesign(@RequestParam(value = "id") int id,
-                                     @RequestParam(value = "projectname", required = true) String projectname,
-                                     @RequestParam(value = "personname", required = true) String personname,
-                                     @RequestParam(value = "worktime", required = true) int worktime) {
+                               @RequestParam(value = "projectname", required = true) String projectname,
+                               @RequestParam(value = "personname", required = true) String personname,
+                               @RequestParam(value = "worktime", required = true) int worktime) {
         encodeService.edit(new Encode(id, projectname, personname, worktime));
         return "redirect:/fas/queryencode";
     }
@@ -480,6 +555,7 @@ public class FASController {
 
     /**
      * 测试修改
+     *
      * @param editid
      * @param modelAndView
      * @return
@@ -493,13 +569,57 @@ public class FASController {
 
     @RequestMapping(value = "/doeditexam", method = RequestMethod.POST)
     public String doEditExam(@RequestParam(value = "id") int id,
-                               @RequestParam(value = "projectname", required = true) String projectname,
-                               @RequestParam(value = "personname", required = true) String personname,
-                               @RequestParam(value = "worktime", required = true) int worktime) {
+                             @RequestParam(value = "projectname", required = true) String projectname,
+                             @RequestParam(value = "personname", required = true) String personname,
+                             @RequestParam(value = "worktime", required = true) int worktime) {
         examinationService.edit(new Examination(id, projectname, personname, worktime));
         return "redirect:/fas/queryexam";
     }
 
+    /**
+     * 发布修改
+     *
+     * @param editid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/editpublish", method = RequestMethod.GET)
+    public ModelAndView goEditPublish(@RequestParam(value = "id") int editid, ModelAndView modelAndView) {
+        modelAndView.addObject("publishInfor", publishService.findOne(editid));
+        modelAndView.setViewName("publish/publish_edit");
+        return modelAndView;
+    }
 
+    @RequestMapping(value = "/doeditpublish", method = RequestMethod.POST)
+    public String doEditPublish(@RequestParam(value = "id") int id,
+                                @RequestParam(value = "projectname", required = true) String projectname,
+                                @RequestParam(value = "personname", required = true) String personname,
+                                @RequestParam(value = "worktime", required = true) int worktime) {
+        publishService.edit(new Publish(id, projectname, personname, worktime));
+        return "redirect:/fas/querypublish";
+    }
+
+    /**
+     * 维护编辑
+     *
+     * @param editid
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/editmaintenance", method = RequestMethod.GET)
+    public ModelAndView goEditMaintenance(@RequestParam(value = "id") int editid, ModelAndView modelAndView) {
+        modelAndView.addObject("maintenanceInfor", maintenanceService.findOne(editid));
+        modelAndView.setViewName("maintenance/maintenance_edit");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/doeditmaintenance", method = RequestMethod.POST)
+    public String doEditMaintenance(@RequestParam(value = "id") int id,
+                                    @RequestParam(value = "projectname", required = true) String projectname,
+                                    @RequestParam(value = "personname", required = true) String personname,
+                                    @RequestParam(value = "worktime", required = true) int worktime) {
+        maintenanceService.edit(new Maintenance(id, projectname, personname, worktime));
+        return "redirect:/fas/querymaintenance";
+    }
 
 }

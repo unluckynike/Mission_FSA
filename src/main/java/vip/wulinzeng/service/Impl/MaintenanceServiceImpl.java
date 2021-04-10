@@ -30,4 +30,19 @@ public class MaintenanceServiceImpl implements MaintenanceService {
     public int add(Maintenance maintenance) {
         return maintenanceDao.add(maintenance);
     }
+
+    @Override
+    public List<Maintenance> findOne(int id) {
+        return maintenanceDao.findOne(id);
+    }
+
+    @Override
+    public int delete(int id) {
+        return maintenanceDao.delete(id);
+    }
+
+    @Override
+    public int edit(Maintenance maintenance) {
+        return maintenanceDao.edit(maintenance);
+    }
 }

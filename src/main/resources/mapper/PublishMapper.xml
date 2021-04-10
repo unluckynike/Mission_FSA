@@ -8,8 +8,20 @@
         select * from publish
     </select>
 
+    <select id="findOne" parameterType="int" resultType="Publish">
+        SELECT * FROM publish WHERE id=#{id}
+    </select>
+
     <update id="add" parameterType="Publish" >
         insert into publish(id,projectname,personname,worktime) values(NULL,#{projectname},#{personname},#{worktime})
+    </update>
+
+    <update id="edit" parameterType="Publish" >
+        UPDATE publish SET projectname=#{projectname}, personname=#{personname}, worktime=#{worktime} WHERE id=#{id}
+    </update>
+
+    <update id="delete" parameterType="int" >
+        delete from publish where id=#{id}
     </update>
 
 </mapper>

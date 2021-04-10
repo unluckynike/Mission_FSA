@@ -74,8 +74,8 @@
 
             <div class="col-sm-6 col-lg-3">
                 <div class="card">
-                    <div class="card-header bg-primary">
-                        <button class="btn btn-primary">编码列表</button>
+                    <div class="card-header bg-success">
+                        <button class="btn btn-success">编码列表</button>
                         <ul class="card-actions">
                         </ul>
                     </div>

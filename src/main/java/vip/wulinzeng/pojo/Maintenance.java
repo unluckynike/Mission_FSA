@@ -1,5 +1,7 @@
 package vip.wulinzeng.pojo;
 
+import org.springframework.stereotype.Component;
+
 /*
 @Name: Maintenance
 @Author: zhouhailin
@@ -7,11 +9,16 @@ package vip.wulinzeng.pojo;
 @Time: 9:45 上午
 @Description： 维护
 */
+@Component
 public class Maintenance {
+
     private int id;
     private String projectname;
     private String personname;
     private int worktime;
+
+    public Maintenance() {
+    }
 
     public Maintenance(String projectname, String personname, int worktime) {
         this.projectname = projectname;
@@ -19,7 +26,11 @@ public class Maintenance {
         this.worktime = worktime;
     }
 
-    public Maintenance() {
+    public Maintenance(int id, String projectname, String personname, int worktime) {
+        this.id = id;
+        this.projectname = projectname;
+        this.personname = personname;
+        this.worktime = worktime;
     }
 
     @Override

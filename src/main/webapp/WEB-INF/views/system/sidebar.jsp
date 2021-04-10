@@ -53,12 +53,15 @@
                     <a href="javascript:void(0)"><i class="mdi mdi-ungroup"></i>5.发布</a>
                     <ul class="nav nav-subnav">
                         <li><a href="${pageContext.request.contextPath }/fas/gopublish">录入发布</a></li>
+                        <li><a href="${pageContext.request.contextPath }/fas/querypublish">查询发布</a></li>
+
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">
                     <a href="javascript:void(0)"><i class="mdi mdi-chart-timeline"></i>6.维护</a>
                     <ul class="nav nav-subnav">
                         <li><a href="${pageContext.request.contextPath }/fas/gomaintenance">录入维护</a></li>
+                        <li><a href="${pageContext.request.contextPath }/fas/querymaintenance">查询维护</a></li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-has-subnav">

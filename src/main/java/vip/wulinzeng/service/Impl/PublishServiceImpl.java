@@ -30,4 +30,19 @@ public class PublishServiceImpl implements PublishService {
     public int add(Publish publish) {
         return publishDao.add(publish);
     }
+
+    @Override
+    public List<Publish> findOne(int id) {
+        return publishDao.findOne(id);
+    }
+
+    @Override
+    public int delete(int id) {
+        return publishDao.delete(id);
+    }
+
+    @Override
+    public int edit(Publish publish) {
+        return publishDao.edit(publish);
+    }
 }

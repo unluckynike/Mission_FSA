@@ -1,7 +1,6 @@
 package vip.wulinzeng.service;
 
 import org.springframework.stereotype.Service;
-import vip.wulinzeng.pojo.Design;
 import vip.wulinzeng.pojo.Maintenance;
 
 import java.util.List;
@@ -10,6 +9,13 @@ import java.util.List;
 public interface MaintenanceService {
 
     public List<Maintenance> findall();
+
     public int add(Maintenance maintenance);
+
+    public List<Maintenance> findOne(int id);
+
+    public int delete(int id);
+
+    public int edit(Maintenance maintenance);
 
 }

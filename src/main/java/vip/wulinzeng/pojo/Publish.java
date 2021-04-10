@@ -25,6 +25,13 @@ public class Publish {
         this.worktime = worktime;
     }
 
+    public Publish(int id, String projectname, String personname, int worktime) {
+        this.id = id;
+        this.projectname = projectname;
+        this.personname = personname;
+        this.worktime = worktime;
+    }
+
     @Override
     public String toString() {
         return "Publish{" +

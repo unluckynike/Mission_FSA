@@ -11,4 +11,9 @@ public interface MaintenanceDao {
 
     public int add(Maintenance maintenance);
 
+    public List<Maintenance> findOne(int id);
+
+    public int delete(int id);
+
+    public int edit(Maintenance maintenance);
 }
