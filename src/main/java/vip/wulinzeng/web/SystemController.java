@@ -25,7 +25,14 @@ public class SystemController {
     @Autowired(required = true)
     private UserService userService;
 
-    @RequestMapping(value = "/index",method = RequestMethod.GET)
+
+    /**
+     * index login
+     * @param module
+     * @return
+     */
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView index(ModelAndView module) {
         module.setViewName("system/index");
         return module;
@@ -33,20 +40,21 @@ public class SystemController {
 
     /**
      * 登陆
+     *
      * @param username
      * @param password
      * @param modelAndView
      * @return
      */
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(
             @RequestParam(value = "username", required = true) String username,
             @RequestParam(value = "password", required = true) String password,
-            ModelAndView modelAndView){
-        User user=userService.finduser(username);
-        if (user!=null){
+            ModelAndView modelAndView) {
+        User user = userService.finduser(username);
+        if (user != null) {
             modelAndView.setViewName("system/welcome");
-        }else {
+        } else {
 
             /**
              * 用户名错误处理
@@ -56,7 +64,7 @@ public class SystemController {
     }
 
     //去后台系统首页
-    @RequestMapping(value = "/gowelcome",method = RequestMethod.GET)
+    @RequestMapping(value = "/gowelcome", method = RequestMethod.GET)
     public ModelAndView gowelcome(ModelAndView module) {
         System.out.println("测试环境执行");
         module.addObject("testInfor", "添加成功");

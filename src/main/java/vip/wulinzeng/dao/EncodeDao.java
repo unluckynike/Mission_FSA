@@ -16,4 +16,7 @@ public interface EncodeDao {
     public int delete(int id);
 
     public int edit(Encode encode);
+
+    public void clean();
+
 }

@@ -18,4 +18,6 @@ public interface RequirementDao {
 
     public int edit(Requirement requirement);
 
+    public void clean();
+
 }

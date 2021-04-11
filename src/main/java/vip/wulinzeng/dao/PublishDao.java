@@ -16,4 +16,6 @@ public interface PublishDao {
 
     public int edit(Publish publish);
 
+    public void clean();
+
 }

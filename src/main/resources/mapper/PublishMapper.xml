@@ -24,4 +24,8 @@
         delete from publish where id=#{id}
     </update>
 
+    <delete id="clean">
+        TRUNCATE publish
+    </delete>
+
 </mapper>

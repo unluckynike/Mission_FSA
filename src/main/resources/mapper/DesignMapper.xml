@@ -24,4 +24,8 @@
         delete from design where id=#{id}
     </update>
 
+    <delete id="clean">
+        TRUNCATE design
+    </delete>
+
 </mapper>

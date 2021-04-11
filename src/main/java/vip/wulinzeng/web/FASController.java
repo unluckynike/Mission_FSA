@@ -76,6 +76,23 @@ public class FASController {
         return modelAndView;
     }
 
+
+    /**
+     * 清除数据
+     *
+     * @return
+     */
+    @RequestMapping(value = "/clean", method = RequestMethod.GET)
+    public String clean() {
+        requirementService.clean();
+        designService.clean();
+        encodeService.clean();
+        examinationService.clean();
+        publishService.clean();
+        maintenanceService.clean();
+        return "redirect:/system/gowelcome";
+    }
+
     /**
      * 栅栏下内容
      *

@@ -58,15 +58,16 @@
                                     <c:forEach items="${maintenances}" var="maintenance" varStatus="vs">
                                         <tbody>
                                         <tr>
-                                            <td>${maintenance.id}</td>
+                                            <td></td>
+<%--                                            <td>${maintenance.id}</td>--%>
                                             <td>${maintenance.projectname}</td>
                                             <td>${maintenance.personname}</td>
                                             <td>${maintenance.worktime}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath }/fas/editmaintenance?id=${maintenance.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                        <%--                                                <a class="btn btn-xs btn-default" href="#!" title="查看" data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>--%>
-                                                    <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath }/fas/deletemaintenance?id=${maintenance.id}" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+<%--                                                    <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath }/fas/editmaintenance?id=${maintenance.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>--%>
+<%--                                                        &lt;%&ndash;                                                <a class="btn btn-xs btn-default" href="#!" title="查看" data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>&ndash;%&gt;--%>
+<%--                                                    <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath }/fas/deletemaintenance?id=${maintenance.id}" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>--%>
                                                 </div>
                                             </td>
                                         </tr>

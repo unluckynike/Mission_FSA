@@ -24,4 +24,7 @@
         delete from requirement where id=#{id}
     </update>
 
+    <delete id="clean">
+        TRUNCATE requirement
+    </delete>
 </mapper>

@@ -16,5 +16,6 @@ public interface EncodeService {
     public List<Encode> findall();
 
     public int add(Encode encode);
+    public void clean();
 
 }

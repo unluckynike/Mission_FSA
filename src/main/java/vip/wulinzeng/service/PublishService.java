@@ -14,4 +14,6 @@ public interface PublishService {
     public int delete(int id);
 
     public int edit(Publish publish);
+    public void clean();
+
 }

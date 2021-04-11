@@ -33,6 +33,11 @@ public class RequirementServiceImpl implements RequirementService {
     }
 
     @Override
+    public void clean() {
+        requirementDao.clean();
+    }
+
+    @Override
     public List<Requirement> findOne(int id) {
         return requirementDao.findOne(id);
     }

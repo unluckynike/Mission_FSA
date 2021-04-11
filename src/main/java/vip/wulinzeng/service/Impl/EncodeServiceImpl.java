@@ -45,4 +45,9 @@ public class EncodeServiceImpl implements EncodeService {
     public int add(Encode encode) {
         return encodeDao.add(encode);
     }
+
+    @Override
+    public void clean() {
+        encodeDao.clean();
+    }
 }

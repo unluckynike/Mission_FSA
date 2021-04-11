@@ -15,4 +15,6 @@ public interface ExaminationDao {
     public int delete(int id);
 
     public int edit(Examination examination);
+    public void clean();
+
 }

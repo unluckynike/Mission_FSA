@@ -45,4 +45,9 @@ public class DesignServiceImpl implements DesignService {
     public int edit(Design design) {
         return designDao.edit(design);
     }
+
+    @Override
+    public void clean() {
+        designDao.clean();
+    }
 }

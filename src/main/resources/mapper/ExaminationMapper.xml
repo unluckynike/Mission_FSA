@@ -24,4 +24,8 @@
         delete from examination where id=#{id}
     </update>
 
+    <delete id="clean">
+        TRUNCATE examination
+    </delete>
+
 </mapper>

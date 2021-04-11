@@ -17,4 +17,6 @@ public interface RequirementService {
     public List<Requirement> findOne(int id);
 
     public int edit(Requirement requirement);
+
+    public void clean();
 }

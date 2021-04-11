@@ -45,4 +45,9 @@ public class ExaminationServiceImpl implements ExaminationService {
     public int edit(Examination examination) {
         return examinationDao.edit(examination);
     }
+
+    @Override
+    public void clean() {
+        examinationDao.clean();
+    }
 }

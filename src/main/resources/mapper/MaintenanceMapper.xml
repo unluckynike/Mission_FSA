@@ -24,4 +24,8 @@
         delete from maintenance where id=#{id}
     </update>
 
+    <delete id="clean">
+        TRUNCATE maintenance
+    </delete>
+
 </mapper>

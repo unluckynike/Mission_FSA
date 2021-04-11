@@ -37,6 +37,11 @@ public class MaintenanceServiceImpl implements MaintenanceService {
     }
 
     @Override
+    public void clean() {
+        maintenanceDao.clean();
+    }
+
+    @Override
     public int delete(int id) {
         return maintenanceDao.delete(id);
     }

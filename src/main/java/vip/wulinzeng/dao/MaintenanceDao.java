@@ -16,4 +16,6 @@ public interface MaintenanceDao {
     public int delete(int id);
 
     public int edit(Maintenance maintenance);
+    public void clean();
+
 }

@@ -37,6 +37,11 @@ public class PublishServiceImpl implements PublishService {
     }
 
     @Override
+    public void clean() {
+        publishDao.clean();
+    }
+
+    @Override
     public int delete(int id) {
         return publishDao.delete(id);
     }

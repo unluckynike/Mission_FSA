@@ -24,4 +24,8 @@
         delete from encoding where id=#{id}
     </update>
 
+    <delete id="clean">
+        TRUNCATE encoding
+    </delete>
+
 </mapper>

@@ -18,4 +18,7 @@ public interface MaintenanceService {
 
     public int edit(Maintenance maintenance);
 
+    public void clean();
+
+
 }

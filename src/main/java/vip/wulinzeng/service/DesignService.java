@@ -18,5 +18,6 @@ public interface DesignService {
     public int delete(int id);
 
     public int edit(Design design);
+    public void clean();
 
 }
